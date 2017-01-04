@@ -1,0 +1,25 @@
+{
+  "name": "cosmos",
+  "description": "modulo de sistema de gestão escolar",
+  "main": "index.js",
+  "authors": [
+    "Helton <helton@heltonsouza.com.br> (http://heltonsouza.com.br)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "gestão",
+    "escolar",
+    "nodejs",
+    "angularjs"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}

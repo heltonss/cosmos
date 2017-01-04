@@ -1,0 +1,24 @@
+{
+  "name": "cosmos",
+  "version": "0.1.0",
+  "description": "modulo de sistema de gestão escolar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gestão",
+    "escolar",
+    "nodejs",
+    "angularjs"
+  ],
+  "author": "Helton <helton@heltonsouza.com.br> (http://heltonsouza.com.br)",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.2.0",
+    "gulp-server-livereload": "^1.9.2",
+    "gulp-watch": "^4.3.11",
+    "wiredep": "^4.0.0"
+  }
+}
