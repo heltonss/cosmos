@@ -10,6 +10,9 @@ const clean = require('gulp-clean-dest');
 const cleanCSS = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
 const Server = require('karma').Server;
+const protractor = require("gulp-protractor").protractor;
+var webdriver_update = require('gulp-protractor').webdriver_update;
+var webdriver_standalone = require("gulp-protractor").webdriver_standalone;
 
 //webserver listening directories
 gulp.task('webserver', function() {
@@ -53,7 +56,7 @@ gulp.task('watch', function() {
 //test with  karma and jasmine for CI - continuous integration
 gulp.task('karma-test', function(done) {
     new Server({
-        configFile: __dirname + '/test/test.conf.js',
+        configFile: __dirname + '/test/test.karma.conf.js',
         singleRun: true
     }, done).start();
 });
@@ -61,9 +64,26 @@ gulp.task('karma-test', function(done) {
 //test with karma and jasmine for TDD
 gulp.task('karma-tdd', function(done) {
     new Server({
-        configFile: __dirname + '/test/test.conf.js'
+        configFile: __dirname + '/test/test.karma.conf.js'
     }, done).start();
 });
+
+//test end to end with protractor and webdriver
+gulp.task('webdriver_standalone', webdriver_standalone);
+gulp.task('webdriver_update', webdriver_update);
+
+gulp.task('test-protractor', ['webdriver_update'], function(done) {
+    gulp.src(["test/e2e/*.js"])
+        .pipe(protractor({
+            configFile: "test/test.protractor.conf.js",
+            args: ['--baseUrl', 'http://localhost:3000']
+        }))
+        .on('error', function(e) {
+            console.log(e);
+        })
+        .on('end', done)
+});
+
 
 //process of buid
 gulp.task('uglifyJs', function() {
