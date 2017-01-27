@@ -6,4 +6,3 @@ node_js:
   - "0.6"
   - "iojs"
 
-  npm test
