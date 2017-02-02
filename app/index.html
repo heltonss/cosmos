@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app>
+<html lang="pt-br" data-ng-app="appCosmos">
 
 <head>
-    <meta charset="UTF-8">
-    <title>cosmos -sistema de gestão escolar</title>
-    <!-- inject:css -->
-    <!-- endinject -->
+    <meta charset="utf-8">
+    <title>COSMOS - Sistema de Gestão Escolar</title>
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/materialize/bin/materialize.css" />
+    <link rel="stylesheet" href="bower_components/material-design-icons/iconfont/material-icons.css" />
     <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/css/login/login.css">
+    <!-- endinject -->
 </head>
 
 <body>
-    <!-- inject:js -->
-    <!-- endinject -->
+    <div class="container" data-ng-view></div>
     <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/materialize/bin/materialize.js"></script>
     <!-- endbower -->
+    <!-- inject:js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/loginControllers.js"></script>
+    <!-- endinject -->
 </body>
 
 </html>
