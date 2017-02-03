@@ -7,18 +7,18 @@
                 </div>
                 <form action="">
                     <div class="input-field col s12">
-                        <input type="text" id="first_name" class="validate">
+                        <input data-ng-model="login" type="text" id="first_name" class="validate">
                         <label for="first_name">login</label>
                     </div>
                     <div class="input-field col s12">
-                        <input type="password" id="email" class="validate">
+                        <input data-ng-model="password" type="password" id="email" class="validate">
                         <label for="email" data-error="wrong" data-success="right">senha</label>
                     </div>
                 </form>
             </div>
             <div class="card-action grey lighten-5 right-align">
                 <button class=" btn-flat waves-effect waves-yellow black-text" href="#">esqueci a senha</button>
-                <button class=" btn-flat waves-effect black-text waves-teal" href="#"><i class="material-icons right">done_all</i> entrar</button>
+                <button class=" btn-flat waves-effect black-text waves-teal click" href="#"><i class="material-icons right">done_all</i> entrar</button>
             </div>
         </div>
     </div>
