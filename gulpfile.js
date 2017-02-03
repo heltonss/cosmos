@@ -86,7 +86,7 @@ gulp.task('test-protractor', ['webdriver_update'], function(done) {
 
 //process of buid
 gulp.task('uglifyJs', function() {
-    gulp.src(['app/scripts/**/*.js'])
+    gulp.src(['app/bower_components/angular/angular.js', 'app/bower_components/angular-route/angular-route.js', 'bower_components/jquery/dist/jquery.js', 'bower_components/materialize/bin/materialize.js', 'app/scripts/**/**/*.js'])
         .pipe(uglify())
         .pipe(concat('script.min.js'))
         .pipe(clean('build/js'))
@@ -94,19 +94,19 @@ gulp.task('uglifyJs', function() {
 });
 
 gulp.task('perform-css', function() {
-    gulp.src(['app/styles/**/*.css'])
+    gulp.src(['app/bower_components/materialize/bin/materialize.css', 'app/bower_components/material-design-icons/iconfont/material-icons.css', 'app/styles/**/*.css'])
         .pipe(cleanCSS())
         .pipe(concat('styles.min.css'))
         .pipe(gulp.dest('build/css'));
 });
 
-// gulp.task('perform-html', function() {
-//     gulp.src('app/partials/**/*.html')
-//         .pipe(htmlmin({
-//             collapseWhitespace: true
-//         }))
-//         .pipe(gulp.dest('build/'))
-// });
+gulp.task('perform-html', function() {
+    gulp.src(['app/**/**/*.html', '!app/index.html', '!app/bower_components'])
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest('build/'))
+});
 
 
 gulp.task("inject-build", function() {
@@ -117,8 +117,8 @@ gulp.task("inject-build", function() {
 })
 
 gulp.task('build', function() {
-    gulp.watch(['app/styles/**/*.css', 'app/scripts/**/*.js'], ['perform-css', 'uglifyJs', 'inject-build']);
-    //gulp.watch(['app/**/**/*.html'], ['perform-html']);
+    gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['perform-css', 'uglifyJs', 'inject-build']);
+    gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components'], ['perform-html']);
 });
 
 gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd', 'build']);
