@@ -21,5 +21,10 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "angular": "angularjs#^1.6.1",
+    "angular-route": "^1.6.1",
+    "materialize": "^0.98.0",
+    "material-design-icons": "^3.0.1"
+  }
 }
