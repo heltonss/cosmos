@@ -10,9 +10,7 @@ const clean = require('gulp-clean-dest');
 const cleanCSS = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
 const Server = require('karma').Server;
-const protractor = require("gulp-protractor").protractor;
-var webdriver_update = require('gulp-protractor').webdriver_update;
-var webdriver_standalone = require("gulp-protractor").webdriver_standalone;
+const gulpProtractorAngular = require('gulp-angular-protractor');
 
 //webserver listening directories
 gulp.task('webserver', function() {
@@ -68,19 +66,18 @@ gulp.task('karma-tdd', function(done) {
 });
 
 //test end to end with protractor and webdriver
-gulp.task('webdriver_standalone', webdriver_standalone);
-gulp.task('webdriver_update', webdriver_update);
 
-gulp.task('test-protractor', ['webdriver_update'], function(done) {
-    gulp.src(["test/e2e/*.js"])
-        .pipe(protractor({
-            configFile: "test/test.protractor.conf.js",
-            args: ['--baseUrl', 'http://localhost:3000']
+gulp.task('test-protractor', function(callback) {
+    gulp.src(['test/e2e/*.js'])
+        .pipe(gulpProtractorAngular({
+            'configFile': 'test/test.protractor.conf.js',
+            'debug': false,
+            'autoStartStopServer': true
         }))
-        .on('error', function(e) {
-            console.log(e);
-        })
-        .on('end', done)
+        // .on('error', function(e) {
+        //     console.log(e);
+        // })
+        .on('end', callback);
 });
 
 
@@ -118,7 +115,7 @@ gulp.task("inject-build", function() {
 
 gulp.task('build', function() {
     gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['perform-css', 'uglifyJs', 'inject-build']);
-    gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components'], ['perform-html']);
+    gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/'], ['perform-html']);
 });
 
 gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd', 'build']);

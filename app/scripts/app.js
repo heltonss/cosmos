@@ -10,10 +10,13 @@ appCosmos.config(['$routeProvider', '$locationProvider',
         $routeProvider.when('/', {
             templateUrl: 'partials/user_sessions/login.html',
             controller: 'loginCtrl'
-        });
+        }).when('/secretaria', {
+            templateUrl: 'partials/dashboard/menu.html',
+            controller: 'loginCtrl'
+        })
         $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
+            enabled: false,
+            requireBase: true
         }).hashPrefix('!');
     }
 ])
