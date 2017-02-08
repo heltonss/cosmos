@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-let appCosmos = angular.module('appCosmos', [
+var appCosmos = angular.module('appCosmos', [
     'ngRoute',
     'sessionControllers'
 ]);

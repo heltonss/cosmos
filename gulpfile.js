@@ -1,6 +1,6 @@
 'use strict';
 const gulp = require('gulp');
-var browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create();
 const inject = require('gulp-inject');
 const wiredep = require('wiredep').stream;
 const sass = require('gulp-sass');
@@ -11,6 +11,7 @@ const cleanCSS = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
 const Server = require('karma').Server;
 const gulpProtractorAngular = require('gulp-angular-protractor');
+const babel = require('gulp-babel');
 
 //webserver listening directories
 gulp.task('webserver', function() {
@@ -36,8 +37,8 @@ gulp.task('injection-bower', function() {
 
 //inject the scripts js and the css
 gulp.task('injection-dev', function() {
-    const target = gulp.src('app/index.html');
-    const sources = gulp.src(['app/styles/**/*.css', 'app/scripts/**/*.js'], { read: false });
+    var target = gulp.src('app/index.html');
+    var sources = gulp.src(['app/styles/**/**/*.css', 'app/scripts/**/**/*.js'], { read: false });
 
     target.pipe(inject(sources, { relative: true })).pipe(gulp.dest('./app'));
 });
@@ -46,7 +47,7 @@ gulp.task('injection-dev', function() {
 gulp.task('watch', function() {
     gulp.watch("app/styles/**/**/*.scss", ['sass']);
     gulp.watch('bower.json', ['injection-bower']);
-    gulp.watch(['app/styles/**/*.css', 'app/scripts/**/*.js'], ['injection-dev']);
+    gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['injection-dev']);
 });
 
 
@@ -83,7 +84,8 @@ gulp.task('test-protractor', function(callback) {
 
 //process of buid
 gulp.task('uglifyJs', function() {
-    gulp.src(['app/bower_components/angular/angular.js', 'app/bower_components/angular-route/angular-route.js', 'bower_components/jquery/dist/jquery.js', 'bower_components/materialize/bin/materialize.js', 'app/scripts/**/**/*.js'])
+    gulp.src(['app/bower_components/angular/angular.js', 'app/bower_components/angular-route/angular-route.js', 'app/bower_components/jquery/dist/jquery.js', 'app/bower_components/materialize/bin/materialize.js', 'app/scripts/**/**/*.js'])
+        .pipe(babel({ presets: ['es2015'] }))
         .pipe(uglify())
         .pipe(concat('script.min.js'))
         .pipe(clean('build/js'))
@@ -107,8 +109,8 @@ gulp.task('perform-html', function() {
 
 
 gulp.task("inject-build", function() {
-    const target = gulp.src('build/index.html');
-    const sources = gulp.src(['build/css/**/*.css', 'build/js/**/*.js'], { read: false });
+    var target = gulp.src('build/index.html');
+    var sources = gulp.src(['build/css/**/*.css', 'build/js/**/*.js'], { read: false });
 
     target.pipe(inject(sources, { relative: true })).pipe(gulp.dest('build/'));
 })
