@@ -1,16 +1,17 @@
 'use strict';
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var inject = require('gulp-inject');
-var wiredep = require('wiredep').stream;
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var clean = require('gulp-clean-dest');
-var cleanCSS = require('gulp-clean-css');
-var htmlmin = require('gulp-htmlmin');
-var Server = require('karma').Server;
-var gulpProtractorAngular = require('gulp-angular-protractor');
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const inject = require('gulp-inject');
+const wiredep = require('wiredep').stream;
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const clean = require('gulp-clean-dest');
+const cleanCSS = require('gulp-clean-css');
+const htmlmin = require('gulp-htmlmin');
+const Server = require('karma').Server;
+const gulpProtractorAngular = require('gulp-angular-protractor');
+const babel = require('gulp-babel');
 
 //webserver listening directories
 gulp.task('webserver', function() {
@@ -84,6 +85,7 @@ gulp.task('test-protractor', function(callback) {
 //process of buid
 gulp.task('uglifyJs', function() {
     gulp.src(['app/bower_components/angular/angular.js', 'app/bower_components/angular-route/angular-route.js', 'app/bower_components/jquery/dist/jquery.js', 'app/bower_components/materialize/bin/materialize.js', 'app/scripts/**/**/*.js'])
+        .pipe(babel({ presets: ['es2015'] }))
         .pipe(uglify())
         .pipe(concat('script.min.js'))
         .pipe(clean('build/js'))
