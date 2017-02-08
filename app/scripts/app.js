@@ -1,9 +1,10 @@
-'use strict';
+'use strict'
 
-let appCosmos = angular.module('appCosmos', [
-    'ngRoute',
-    'sessionControllers'
-]);
+var appCosmos = angular
+    .module('appCosmos', [
+        'ngRoute',
+        'sessionControllers'
+    ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
