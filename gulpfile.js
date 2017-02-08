@@ -118,4 +118,4 @@ gulp.task('build', function() {
     gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/'], ['perform-html']);
 });
 
-gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd', 'build']);
+gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd']);
