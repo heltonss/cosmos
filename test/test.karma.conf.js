@@ -20,9 +20,10 @@ module.exports = function(config) {
             '../app/bower_components/angular-route/angular-route.js',
             '../app/bower_components/jquery/dist/jquery.js',
             '../app/bower_components/materialize/bin/materialize.js',
-            // '../app/scripts/controllers/session/sessionControllers.js',
             '../app/scripts/**/**/**/*.js',
-            'spec/**/*.js'
+            'spec/**/*.js',
+            //teste do build
+            '../build/js/script.min.js'
         ],
 
 
