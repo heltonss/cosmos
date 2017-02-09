@@ -11,7 +11,6 @@ const cleanCSS = require('gulp-clean-css');
 const htmlmin = require('gulp-htmlmin');
 const Server = require('karma').Server;
 const gulpProtractorAngular = require('gulp-angular-protractor');
-const babel = require('gulp-babel');
 
 //webserver listening directories
 gulp.task('webserver', function() {
@@ -85,7 +84,6 @@ gulp.task('test-protractor', function(callback) {
 //process of buid
 gulp.task('uglifyJs', function() {
     gulp.src(['app/bower_components/angular/angular.js', 'app/bower_components/angular-route/angular-route.js', 'app/bower_components/jquery/dist/jquery.js', 'app/bower_components/materialize/bin/materialize.js', 'app/scripts/**/**/*.js'])
-        .pipe(babel({ presets: ['es2015'] }))
         .pipe(uglify())
         .pipe(concat('script.min.js'))
         .pipe(clean('build/js'))
@@ -120,4 +118,4 @@ gulp.task('build', function() {
     gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/'], ['perform-html']);
 });
 
-gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd']);
+gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd', 'build']);
