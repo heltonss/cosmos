@@ -98,7 +98,7 @@ gulp.task('perform-css', function() {
 });
 
 gulp.task('perform-html', function() {
-    gulp.src(['app/**/**/*.html', '!app/index.html', '!app/bower_components'])
+    gulp.src(['app/**/**/*.html', '!app/index.html', '!app/bower_components/**/*.html'])
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
@@ -115,7 +115,7 @@ gulp.task("inject-build", function() {
 
 gulp.task('build', function() {
     gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['perform-css', 'uglifyJs', 'inject-build']);
-    gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/'], ['perform-html']);
+    gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/**/*.html'], ['perform-html']);
 });
 
 gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd', 'build']);
