@@ -1,14 +1,13 @@
 'use strict';
 
-let sessionControllers = angular.module('sessionControllers', []);
+var sessionControllers = angular.module('sessionControllers', []);
 
 sessionControllers.controller('sessionCtrl', ['$location',
     function sessionCtrl($location) {
-        let vm = this;
+        var vm = this;
         vm.sessionValidate = sessionValidate;
 
         function sessionValidate(user) {
-            console.log("teste " + user)
             vm.login = user.login;
             vm.pass = user.password;
 
