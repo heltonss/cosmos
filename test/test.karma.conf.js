@@ -22,8 +22,6 @@ module.exports = function(config) {
             '../app/bower_components/materialize/bin/materialize.js',
             '../app/scripts/**/**/**/*.js',
             'spec/**/*.js',
-            //teste do build
-            '../build/js/script.min.js'
         ],
 
 
