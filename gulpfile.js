@@ -53,7 +53,7 @@ gulp.task('watch', function() {
 //test with  karma and jasmine for CI - continuous integration
 gulp.task('karma-test', function(done) {
     new Server({
-        configFile: __dirname + '/test/test.karma.conf.js',
+        configFile: __dirname + '/test.karma.continuous.integration.js',
         singleRun: true
     }, done).start();
 });
