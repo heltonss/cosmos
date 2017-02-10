@@ -15,7 +15,13 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            '../app/scripts/**/*.js',
+            '../app/bower_components/angular/angular.js',
+            '../app/bower_components/angular-mocks/angular-mocks.js',
+            '../app/bower_components/angular-route/angular-route.js',
+            '../app/bower_components/jquery/dist/jquery.js',
+            '../app/bower_components/materialize/bin/materialize.js',
+            // '../app/scripts/controllers/session/sessionControllers.js',
+            '../app/scripts/**/**/**/*.js',
             'spec/**/*.js'
         ],
 
