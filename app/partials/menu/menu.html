@@ -1,0 +1,26 @@
+<div class="row">
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Colaborador</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Professor</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Aluno</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper grey lighten-3 ">
+            <a href="#!" class="brand-logo col s1"><img src="../../imgs/logo-cosmos.svg" class="responsive-img logo" alt=""></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="black-text" href="sass.html">Listar alunos</a></li>
+                <li><a class="black-text" href="badges.html">Listar professores</a></li>
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">Cadastrar<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".dropdown-button").dropdown();
+    })
+</script>
