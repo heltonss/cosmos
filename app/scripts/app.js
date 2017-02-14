@@ -12,7 +12,7 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 controller: 'sessionCtrl'
             })
             .when('/secretaria', {
-                templateUrl: 'partials/dashboard/menu.html'
+                templateUrl: 'partials/dashboard/dashboard.html'
             })
         $locationProvider.html5Mode({
             enabled: true,
