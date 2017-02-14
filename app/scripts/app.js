@@ -1,7 +1,8 @@
 'use strict'
 var appCosmos = angular.module('appCosmos', [
     'ngRoute',
-    'sessionControllers'
+    'sessionControllers',
+    'colaboratorFormControllers'
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
@@ -13,6 +14,10 @@ appCosmos.config(['$routeProvider', '$locationProvider',
             })
             .when('/secretaria', {
                 templateUrl: 'partials/dashboard/dashboard.html'
+            })
+            .when('/cadastro-colaborador', {
+                templateUrl: 'partials/colaborator-form/colaborator-form.html',
+                controller: 'colaboratorFormCtrl'
             })
         $locationProvider.html5Mode({
             enabled: true,
