@@ -8,12 +8,25 @@
     </ul>
     <nav>
         <div class="nav-wrapper grey lighten-3 ">
-            <a href="#!" class="brand-logo col s1"><img src="../../imgs/logo-cosmos.svg" class="responsive-img logo" alt=""></a>
+            <a href="#!" class="brand-logo col l1"><img src="../../imgs/logo-cosmos.svg" class="responsive-img logo" alt=""></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse black-text"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="black-text" href="sass.html">Listar alunos</a></li>
                 <li><a class="black-text" href="badges.html">Listar professores</a></li>
                 <!-- Dropdown Trigger -->
                 <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">Cadastrar<i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+            <ul id="mobile-demo" class="side-nav">
+                <li class="black-text center-align">COSMOS</li>
+                <li><a class="black-text" href="sass.html">Listar alunos</a></li>
+                <li class="divider"></li>
+                <li><a class="black-text" href="badges.html">Listar professores</a></li>
+                <li class="divider"></li>
+                <li><a href="/cadastro-colaborador">Cadastrar Colaborador</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">Cadastrar Professor</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">Cadastrar Aluno</a></li>
             </ul>
         </div>
     </nav>
@@ -22,5 +35,6 @@
 <script>
     $(document).ready(function() {
         $(".dropdown-button").dropdown();
+        $(".button-collapse").sideNav();
     })
 </script>

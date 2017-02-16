@@ -44,7 +44,7 @@ gulp.task('injection-dev', function() {
 
 //watch all
 gulp.task('watch', function() {
-    gulp.watch("app/styles/**/**/**/*.scss", ['sass']);
+    gulp.watch("app/styles/sass/**/*.scss", ['sass']);
     gulp.watch('bower.json', ['injection-bower']);
     gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['injection-dev']);
 });
