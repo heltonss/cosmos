@@ -48,7 +48,7 @@ gulp.task('injection-dev', function() {
 
 //watch all
 gulp.task('watch', function() {
-    gulp.watch("app/styles/**/**/**/*.scss", ['sass']);
+    gulp.watch("app/styles/sass/**/*.scss", ['sass']);
     gulp.watch('bower.json', ['injection-bower']);
     gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['injection-dev']);
 
@@ -92,7 +92,7 @@ gulp.task('test-protractor', function(callback) {
 
 //process of buid
 gulp.task('uglifyJs', function() {
-    gulp.src(['app/bower_components/angular/angular.js', 'app/bower_components/angular-route/angular-route.js', 'app/bower_components/jquery/dist/jquery.js', 'app/bower_components/materialize/bin/materialize.js', 'app/scripts/**/**/*.js'])
+    gulp.src(['app/bower_components/jquery/dist/jquery.js', 'app/bower_components/angular/angular.js', 'app/bower_components/angular-route/angular-route.js', 'app/bower_components/materialize/bin/materialize.js', 'app/scripts/**/**/*.js'])
         .pipe(uglify())
         .pipe(concat('script.min.js'))
         .pipe(clean('build/js'))
