@@ -16,10 +16,13 @@ const gulpProtractorAngular = require('gulp-angular-protractor');
 gulp.task('webserver', function() {
     browserSync.init({
         server: {
-            baseDir: "app/"
+            baseDir: "./app/"
         }
     });
     gulp.watch("app/**/*.html").on('change', browserSync.reload);
+    gulp.watch("app/**/**/*.html").on('change', browserSync.reload);
+    gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['injection-dev']);
+
 });
 
 //SASS
@@ -118,4 +121,4 @@ gulp.task('build', function() {
     gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/**/*.html'], ['perform-html']);
 });
 
-gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'watch', 'karma-tdd']);
+gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'karma-tdd']);

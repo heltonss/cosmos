@@ -2,7 +2,8 @@
 var appCosmos = angular.module('appCosmos', [
     'ngRoute',
     'sessionControllers',
-    'colaboratorFormControllers'
+    'colaboradorFormControllers',
+    'alunoFormControllers'
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
@@ -12,16 +13,21 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'partials/user_sessions/login.html',
                 controller: 'sessionCtrl'
             })
-            .when('/secretaria', {
+            .when('/dashboard', {
                 templateUrl: 'partials/dashboard/dashboard.html'
             })
             .when('/cadastro-colaborador', {
                 templateUrl: 'partials/colaborator-form/colaborator-form.html',
-                controller: 'colaboratorFormCtrl'
+                controller: 'colaboradorFormCtrl'
             })
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        }).hashPrefix('!');
+            .when('/cadastro-aluno', {
+                templateUrl: 'partials/aluno-form/aluno-form.html',
+                controller: 'alunoFormCtrl'
+            })
+        // $locationProvider.html5Mode({
+        //     enabled: true,
+        //     requireBase: false
+        // }).hashPrefix('!');
+        $locationProvider.html5Mode(false);
     }
 ])
