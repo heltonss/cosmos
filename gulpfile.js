@@ -124,9 +124,9 @@ gulp.task("inject-build", function() {
     })).pipe(gulp.dest('build/'));
 })
 
-gulp.task('build', function() {
-    gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['perform-css', 'uglifyJs', 'inject-build']);
-    gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/**/*.html'], ['perform-html']);
-});
+// gulp.task('build', function() {
+//     gulp.watch(['app/styles/**/*.css', 'app/scripts/**/**/*.js'], ['perform-css', 'uglifyJs', 'inject-build']);
+//     gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/**/*.html'], ['perform-html']);
+// });
 
 gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'karma-tdd','build']);

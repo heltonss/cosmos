@@ -1,4 +1,4 @@
-# Cosmos
+# Cosmos [![Build Status](https://travis-ci.org/heltonss/cosmos.svg?branch=master)](https://travis-ci.org/heltonss/cosmos)
 ## Módulo para sistema de gestão escolar
 
 ## **_Objetivo:_**
