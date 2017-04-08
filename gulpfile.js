@@ -40,12 +40,16 @@ gulp.task('injection-bower', function() {
 //inject the scripts js and the css
 gulp.task('injection-dev', function() {
     var target = gulp.src('app/index.html');
-    var sources = gulp.src(['app/styles/**/**/*.css', 'app/scripts/**/**/*.js'], { read: false });
+    var sources = gulp.src(['app/styles/**/**/*.css', 'app/scripts/**/**/*.js'], {
+        read: false
+    });
 
-    target.pipe(inject(sources, { relative: true })).pipe(gulp.dest('./app'));
+    target.pipe(inject(sources, {
+        relative: true
+    })).pipe(gulp.dest('./app'));
 });
 
-//watch all
+
 // gulp.task('watch', function() {
 //     gulp.watch("app/styles/sass/**/*.scss", ['sass']);
 //     gulp.watch('bower.json', ['injection-bower']);
@@ -111,9 +115,13 @@ gulp.task('perform-html', function() {
 
 gulp.task("inject-build", function() {
     var target = gulp.src('build/index.html');
-    var sources = gulp.src(['build/css/**/*.css', 'build/js/**/*.js'], { read: false });
+    var sources = gulp.src(['build/css/**/*.css', 'build/js/**/*.js'], {
+        read: false
+    });
 
-    target.pipe(inject(sources, { relative: true })).pipe(gulp.dest('build/'));
+    target.pipe(inject(sources, {
+        relative: true
+    })).pipe(gulp.dest('build/'));
 })
 
 gulp.task('build', function() {
