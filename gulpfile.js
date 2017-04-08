@@ -67,10 +67,6 @@ gulp.task('watch', function() {
     gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/**/*.html'], ['perform-html']);
 
 });
->>>>>>> 16efc1a78cb4e2c170c7e41e81e8397294846ed3
-=======
->>>>>>> corrigir-conflito
-
 
 //test with  karma and jasmine for CI - continuous integration
 gulp.task('karma-test', function(done) {
