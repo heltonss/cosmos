@@ -5,7 +5,8 @@ var appCosmos = angular.module('appCosmos', [
     'colaboradorFormControllers',
     'alunoFormControllers',
     'professorFormControllers',
-    'diretorFormControllers'
+    'diretorFormControllers',
+    'coordenadorFormControllers'
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
@@ -25,6 +26,10 @@ appCosmos.config(['$routeProvider', '$locationProvider',
             .when('/cadastro-diretor', {
                 templateUrl: 'partials/diretor-form/diretor-form.html',
                 controller: 'diretorFormCtrl'
+            })
+            .when('/cadastro-coordenador', {
+                templateUrl: 'partials/coordenador-form/coordenador-form.html',
+                controller: 'coordenadorFormCtrl'
             })
             .when('/cadastro-professor', {
                 templateUrl: 'partials/professor-form/professor-form.html',
