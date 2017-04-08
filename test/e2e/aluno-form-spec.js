@@ -1,7 +1,7 @@
 describe("testando o cadastro do aluno", function() {
     it("Testando um formulário", function() {
         browser.ignoreSynchronization = false;
-        browser.get("http://localhost:3000/cadastro-aluno")
+        browser.get("http://localhost:3000/#!/cadastro-aluno")
 
 
         //encontrando o button e acionando o click
