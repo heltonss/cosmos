@@ -121,4 +121,4 @@ gulp.task('build', function() {
     gulp.watch(['app/**/**/*.html', '!app/index.html', '!app/bower_components/**/*.html'], ['perform-html']);
 });
 
-gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'karma-tdd']);
+gulp.task('default', ['webserver', 'sass', 'injection-bower', 'injection-dev', 'karma-tdd','build']);
