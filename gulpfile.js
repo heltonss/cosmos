@@ -49,7 +49,7 @@ gulp.task('injection-dev', function() {
     })).pipe(gulp.dest('./app'));
 });
 
-//watch all
+
 // gulp.task('watch', function() {
 //     gulp.watch("app/styles/sass/**/*.scss", ['sass']);
 //     gulp.watch('bower.json', ['injection-bower']);
@@ -68,6 +68,8 @@ gulp.task('watch', function() {
 
 });
 >>>>>>> 16efc1a78cb4e2c170c7e41e81e8397294846ed3
+=======
+>>>>>>> corrigir-conflito
 
 
 //test with  karma and jasmine for CI - continuous integration
