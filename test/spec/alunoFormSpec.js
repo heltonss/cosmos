@@ -1,4 +1,4 @@
-describe('Testando controllers da alunoFormCtrl', function() {
+describe('Testando controllers do alunoFormCtrl', function() {
     var ctrl, scope;
     beforeEach(module('appCosmos'));
 
