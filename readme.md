@@ -1,9 +1,9 @@
 # Cosmos [![Build Status](https://travis-ci.org/heltonss/cosmos.svg?branch=master)](https://travis-ci.org/heltonss/cosmos)
-## Módulo para sistema de gestão escolar
+## Módulo de comunicação para sistema de gestão escolar
 
 ## **_Objetivo:_**
 
-Desenvolvimento de um módulo para sistema de gestão escolar como trabalho de conclusão de curso _Sistemas para Internet - Fatec São Roque_
+Desenvolvimento de um módulo de comunicação para sistema de gestão escolar como trabalho de conclusão de curso _Sistemas para Internet - Fatec São Roque_
 
 O propósito desse projeto é o estudo e desenvolvimento de um módulo de gestão escolar com tecnologias _JavaScript_ usadas no frontend e no backend como _NodeJS_ e _AngularJS_ 
 
@@ -24,7 +24,7 @@ npm install
 ```
 
 ## Executando o projeto.
-Para executar o projeto e acompanhar as alterações em tempo real basta executar no terminal na pasta raiz
+Para executar o projeto em desenvolvimento e acompanhar as alterações em tempo real basta executar no terminal na pasta raiz
 ```
 gulp 
 ```
@@ -36,4 +36,11 @@ gulp
 gulp test-protractor
 ```
 
-## _esse documento ainda se encontra em desenvolvimento_
+## gerando arquivos para produção
+Após desenvolver e finalizar sua tarefa no ambiente de desenvolvimento você deve enviar para produção, para isso é necessário gerar os arquivos para produção através do comando.
+```
+gulp build
+```
+
+## enviando arquvivos para produção
+Após gerar os arquivos de produção envie os arquivos para o GITHUB, quando o projeto é enviado e passa por uma ferramenta de integração contínua CI(Continous Integration) chamada [Travis](https://https://travis-ci.org/) que efetua os testes novamente caso ele não passe verifique o que houve na página de teste Travis , se ele passar basta solictar um pull request.
