@@ -43,4 +43,4 @@ gulp build
 ```
 
 ## enviando arquvivos para produção
-Após gerar os arquivos de produção envie os arquivos para o GITHUB, quando o projeto é enviado e passa por uma ferramenta de integração contínua CI(Continous Integration) chamada Travis(https://https://travis-ci.org/) que efetua os testes novamente caso ele não passe verifique o que houve na página de teste Travis , se ele passar basta solictar um pull request.
+Após gerar os arquivos de produção envie os arquivos para o GITHUB, quando o projeto é enviado e passa por uma ferramenta de integração contínua CI(Continous Integration) chamada [Travis](https://https://travis-ci.org/) que efetua os testes novamente caso ele não passe verifique o que houve na página de teste Travis , se ele passar basta solictar um pull request.
