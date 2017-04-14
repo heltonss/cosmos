@@ -5,25 +5,25 @@
     </div>
 </div>
 <div class="row">
-    <form action="">
+    <form action="" data-ng-controller="colaboradorFormCtrl as colaboradorVm" >
         <div class="input-field col s12 l6">
-            <input type="text" id="first_name" class="validate">
+            <input type="text" id="first_name" data-ng-model="colaborador.name" class="validate">
             <label for="first_name">Nome</label>
         </div>
         <div class="input-field col s12 l6">
-            <input type="text" id="last_name" class="validate">
+            <input type="text" id="last_name" data-ng-model="colaborador.sobrenome" class="validate">
             <label for="last_name">Sobrenome</label>
         </div>
         <div class="input-field col s12">
-            <input type="email" id="email" class="validate">
+            <input type="email" id="email" data-ng-model="colaborador.email" class="validate">
             <label for="email" data-error="wrong" data-success="right">E-mail</label>
         </div>
         <div class="input-field col s12">
-            <input type="text" id="login" class="validate">
+            <input type="text" id="login" data-ng-model="colaborador.cargo" class="validate">
             <label for="cargo" data-error="wrong">Cargo</label>
         </div>
         <div class="input-field col s12">
-            <input type="text" id="login" class="validate">
+            <input type="text" id="login" data-ng-model="colaborador.login" class="validate">
             <label for="login" data-error="wrong">login</label>
         </div>
         <div class="right">
@@ -31,7 +31,7 @@
             Cancelar
             <i class="material-icons right">backspace</i>
         </a>
-            <button class="btn waves-effect waves-teal btn-flat btn-large" type="submit" name="action">
+            <button class="btn waves-effect waves-teal btn-flat btn-large" type="submit" data-ng-click="colaboradorVm.create(colaborador)" name="action">
             Cadastrar
             <i class="material-icons right">done_all</i>
         </button>
