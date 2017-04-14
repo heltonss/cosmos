@@ -3,18 +3,17 @@
 var colaboradorFormControllers = angular.module('colaboradorFormControllers', []);
 
 
-colaboradorFormControllers.controller('colaboradorFormCtrl', ['$scope', 'crudColaborador', '$routeParams',
-    function colaboradorFormCtrl($scope, crudColaborador, $routeParams) {
+colaboradorFormControllers.controller('colaboradorFormCtrl', ['crudColaborador', '$routeParams',
+    function colaboradorFormCtrl(crudColaborador, $routeParams) {
         var vm = this;
 
         vm.create = create;
 
-
-
-        function create(colaborador) {
-            vm.colaborador = colaborador;
+        function create(colaboradorVm) {
+            vm.colaborador = colaboradorVm;
 
             var createColaborador = JSON.stringify(vm.colaborador, null, " ");
+
             crudColaborador.save(createColaborador,
                 function success(res) {
                     console.log("colaborador salvo no banco")
