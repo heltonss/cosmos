@@ -12,8 +12,7 @@ colaboradorFormControllers.controller('colaboradorFormCtrl', ['crudColaborador',
         function create(colaboradorVm) {
             vm.colaborador = colaboradorVm;
 
-            var createColaborador = JSON.stringify(vm.colaborador, null, " ");
-
+            var createColaborador = JSON.stringify(vm.colaborador);
             crudColaborador.save(createColaborador,
                 function success(res) {
                     console.log("colaborador salvo no banco")
