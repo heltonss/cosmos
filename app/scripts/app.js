@@ -7,7 +7,8 @@ var appCosmos = angular.module('appCosmos', [
     'professorFormControllers',
     'diretorFormControllers',
     'coordenadorFormControllers',
-    'colaboradorService'
+    'colaboradorService',
+    'alunoService'
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
