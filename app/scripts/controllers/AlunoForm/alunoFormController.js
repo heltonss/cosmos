@@ -5,6 +5,8 @@ alunoFormControllers.controller('alunoFormCtrl', ['crudAluno', '$routeParams',
     function alunoFormCtrl(crudAluno, $routeParams) {
         var vm = this;
 
+        var sanitizer = new Sanitizer();
+
         vm.exclude = exclude;
         vm.update = update;
         vm.create = create;
@@ -38,20 +40,20 @@ alunoFormControllers.controller('alunoFormCtrl', ['crudAluno', '$routeParams',
         }
 
         function create(aluno) {
-            var aluno = new Aluno(
-                aluno.nome,
-                aluno.sobrenome,
-                aluno.dataNascimento,
-                aluno.naturalidade,
-                aluno.sexo,
-                aluno.foto,
-                aluno.nota,
-                aluno.matricula,
-                aluno.endereco,
-                aluno.contato
-            );
+            var estudante = new Aluno();
 
-            var createAluno = JSON.stringify(aluno, null, " ");
+            // estudante.nome = sanitizer.sanitizer(aluno.nome);
+            // estudante.sobrenome = sanitizer.sanitizer(aluno.sobrenome);;
+            // estudante.dataNascimento = sanitizer.sanitizer(aluno.dataNascimento);
+            // estudante.naturalidade = sanitizer.sanitizer(aluno.naturalidade);
+            // estudante.sexo = sanitizer.sanitizer(aluno.sexo);
+            // estudante.foto = aluno.foto;
+            // estudante.nota = aluno.nota;
+            estudante.matricula = sanitizer.sanitizer(aluno.matricula);
+            estudante.endereco = sanitizer.sanitizer(aluno.endereco);
+            // estudante.contato = aluno.contato;
+
+            var createAluno = JSON.stringify(estudante, null, " ");
 
             crudAluno.save(createAluno,
                 function success(res) {
