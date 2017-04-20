@@ -14,22 +14,22 @@
                 <label for="nome">nome</label>
             </div>
             <div class="input-field col s12 l6">
-                <input type="text" id="first_name" data-ng-model="aluno.sobrenome"  class="validate">
+                <input type="text" id="sobrenome" data-ng-model="aluno.sobrenome" class="validate">
                 <label for="sobrenome">sobrenome</label>
             </div>
             <div class="input-field col s12 l4">
                 <i class="material-icons prefix">perm_contact_calendar</i>
-                <input type="date" id="sobrenome" data-ng-model="aluno.dataNascimento"  class="datepicker">
+                <input type="date" id="dataNascimento" data-ng-model="aluno.dataNascimento" class="datepicker">
                 <label for="dataNascimento">Data de Nascimento</label>
             </div>
             <div class="input-field col s12 l4">
                 <i class="material-icons prefix">language</i>
-                <input type="text" id="naturalidade" data-ng-model="aluno.naturalidade"  class="validate">
+                <input type="text" id="naturalidade" data-ng-model="aluno.naturalidade" class="validate">
                 <label for="naturalidade">naturalidade</label>
             </div>
 
             <div class="input-field col s12 l4">
-                <select data-ng-model="aluno.sexo" >
+                <select data-ng-model="aluno.sexo">
                     <i class="material-icons prefix">perm_identity</i>
                     <option value="" disabled selected>sexo</option>
                     <option value="M">M</option>
@@ -40,7 +40,7 @@
             <div class="file-field input-field col s12 l12">
                 <div class="btn">
                     <span>Insira a foto do aluno</span>
-                    <input type="file" data-ng-model="aluno.foto" >
+                    <input type="file" data-ng-model="aluno.foto">
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
@@ -49,24 +49,37 @@
         </fieldset>
         <fieldset>
             <legend>Matrícula</legend>
-            <div class="input-field col s12 l12">
-                <select id="matricula" data-ng-model="aluno.matricula" >
+            <div class="input-field col s12 l6">
+                <select id="matricula" data-ng-model="aluno.matricula.semestre">
                     <i class="material-icons prefix">perm_identity</i>
-                    <option value="" disabled selected>Matrículado no:</option>
-                    <option value="1 semestre 2016">1º Semestre de 2016</option>
-                    <option value="2 semestra 2016">2º Semestre de 2016</option>
+                    <option value="" disabled selected>Semestre</option>
+                    <option value="1">1º Semestre</option>
+                    <option value="2">2º Semestre</option>
                 </select>
                 <label>Semestre que está matrículado</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <select id="matricula" data-ng-model="aluno.matricula.ano">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <option value="" disabled selected>Ano</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                </select>
+                <label>Ano que está matrículado</label>
             </div>
         </fieldset>
         <fieldset>
             <legend>Endereço</legend>
             <div class="input-field col s12 l10">
-                <input type="text" id="rua" data-ng-model="aluno.endereco.rua"  class="validate">
+                <input type="text" id="rua" data-ng-model="aluno.endereco.rua" class="validate">
                 <label for="rua">rua/av</label>
             </div>
             <div class="input-field col s12 l2">
-                <input type="text" id="numero" data-ng-model="aluno.endereco.numero"  class="validate">
+                <input type="text" id="numero" data-ng-model="aluno.endereco.numero" class="validate">
                 <label for="numero">número</label>
             </div>
             <div class="input-field col s12 l3">
