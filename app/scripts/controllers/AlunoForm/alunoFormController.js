@@ -42,16 +42,16 @@ alunoFormControllers.controller('alunoFormCtrl', ['crudAluno', '$routeParams',
         function create(aluno) {
             var estudante = new Aluno();
 
-            // estudante.nome = sanitizer.sanitizer(aluno.nome);
-            // estudante.sobrenome = sanitizer.sanitizer(aluno.sobrenome);;
-            // estudante.dataNascimento = sanitizer.sanitizer(aluno.dataNascimento);
-            // estudante.naturalidade = sanitizer.sanitizer(aluno.naturalidade);
-            // estudante.sexo = sanitizer.sanitizer(aluno.sexo);
-            // estudante.foto = aluno.foto;
-            // estudante.nota = aluno.nota;
+            estudante.nome = sanitizer.sanitizer(aluno.nome);
+            estudante.sobrenome = sanitizer.sanitizer(aluno.sobrenome);;
+            estudante.dataNascimento = sanitizer.sanitizer(aluno.dataNascimento);
+            estudante.naturalidade = sanitizer.sanitizer(aluno.naturalidade);
+            estudante.sexo = sanitizer.sanitizer(aluno.sexo);
+            estudante.foto = aluno.foto;
+            estudante.nota = aluno.nota;
             estudante.matricula = sanitizer.sanitizer(aluno.matricula);
             estudante.endereco = sanitizer.sanitizer(aluno.endereco);
-            // estudante.contato = aluno.contato;
+            estudante.contato = sanitizer.sanitizer(aluno.contato);
 
             var createAluno = JSON.stringify(estudante, null, " ");
 
