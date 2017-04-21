@@ -6,6 +6,7 @@ professorFormControllers.controller('professorFormCtrl', ['crudProfessor', '$rou
     function professorFormCtrl(crudProfessor, $routeParams) {
 
         var vm = this;
+        var sanitizer = new Sanitizer();
 
         vm.create = create;
         vm.update = update;
@@ -20,16 +21,16 @@ professorFormControllers.controller('professorFormCtrl', ['crudProfessor', '$rou
             var chips = $('.chips').material_chip('data');
 
             var prof = new Professor()
-            prof.nome = professor.nome;
-            prof.sobrenome = professor.sobrenome;
-            prof.dataNascimento = professor.dataNascimento;
-            prof.naturalidade = professor.naturalidade;
-            prof.sexo = professor.sexo;
-            prof.foto = professor.foto;
-            prof.endereco = professor.endereco;
-            prof.infoAcademica = professor.infoAcademica;
+            prof.nome = sanitizer.sanitizer(professor.nome);
+            prof.sobrenome = sanitizer.sanitizer(professor.sobrenome);
+            prof.dataNascimento = sanitizer.sanitizer(professor.dataNascimento);
+            prof.naturalidade = sanitizer.sanitizer(professor.naturalidade);
+            prof.sexo = sanitizer.sanitizer(professor.sexo);
+            prof.foto = sanitizer.sanitizer(professor.foto);
+            prof.endereco = sanitizer.sanitizer(professor.endereco);
+            prof.infoAcademica = sanitizer.sanitizer(professor.infoAcademica);
             prof.materias = prof.getMaterias(chips);
-            prof.contato = professor.contato;
+            prof.contato = sanitizer.sanitizer(professor.contato);
 
 
             var createProfessor = JSON.stringify(prof, null, " ")
