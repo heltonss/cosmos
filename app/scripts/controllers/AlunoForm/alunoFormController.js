@@ -3,8 +3,8 @@ var alunoFormControllers = angular.module('alunoFormControllers', [])
 
 alunoFormControllers.controller('alunoFormCtrl', ['crudAluno', '$routeParams',
     function alunoFormCtrl(crudAluno, $routeParams) {
+        
         var vm = this;
-
         var sanitizer = new Sanitizer();
 
         vm.exclude = exclude;

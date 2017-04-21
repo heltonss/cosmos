@@ -28,6 +28,6 @@ function Professor(
         for (var i = 0; i < data.length; i++) {
             chips[i] = data[i].tag;
         }
-        this.chips = chips;
+        return this.chips = chips;
     }
 }

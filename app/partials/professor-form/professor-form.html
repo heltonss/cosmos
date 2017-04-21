@@ -100,14 +100,27 @@
                 <input type="text" id="instituicao" data-ng-model="professor.infoAcademica.curriculoLattes" class="validate">
                 <label for="instituicao">Link do Currículo Lattes </label>
             </div>
-            <div class="input-field col s12 l4">
-                <select data-ng-model="professor.infoAcademica.semestreInicio">
+            <div class="input-field col s12 l6">
+                <select id="matricula" data-ng-model="professor.infoAcademica.semestreInicio">
                     <i class="material-icons prefix">perm_identity</i>
-                    <option value="" disabled selected>lecionando a partir do 2º:</option>
-                    <option value="1 semestre de 2016">1º Semestre de 2016</option>
-                    <option value="2 semestre de 2016">2º Semestre de 2016</option>
+                    <option value="" disabled selected>Semestre</option>
+                    <option value="1">1º Semestre</option>
+                    <option value="2">2º Semestre</option>
                 </select>
-                <label>Semestre que entrou na instituição</label>
+                <label>Semestre que está matrículado</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <select id="matricula" data-ng-model="professor.infoAcademica.anoInicio">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <option value="" disabled selected>Ano</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                </select>
+                <label>Ano que está matrículado</label>
             </div>
             <div class="input-field col s12 l3">
                 <input type="checkbox" id="gestao-comercial" data-ng-true-value="'gestao comercial'" data-ng-model="professor.infoAcademica.cursoLeciona1"
