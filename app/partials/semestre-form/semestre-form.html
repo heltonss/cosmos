@@ -1,0 +1,56 @@
+<div data-ng-include="'./../partials/menu/menu.html'"></div>
+<div class="row">
+    <form data-ng-controller="semestreFormCtrl as semestreVm">
+        <fieldset>
+            <legend>cadastro de semestre</legend>
+            <div class="input-field col s12 l6">
+                <select id="semestre" data-ng-model="semestre.ordinario">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <option value="" disabled selected>Semestre</option>
+                    <option value="1">1º Semestre</option>
+                    <option value="2">2º Semestre</option>
+                    <option value="3">3º Semestre</option>
+                    <option value="4">4º Semestre</option>
+                    <option value="5">5º Semestre</option>
+                    <option value="6">6º Semestre</option>
+                </select>
+                <label>Semestre que está matrículado</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <select id="curso" data-ng-model="semestre.curso" data-ng-options="cursos._id as cursos.curso for cursos in semestreVm.listarCursos">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <option value="" disabled selected>Curso</option>  
+                </select>
+                <label>Curso</label>
+            </div>
+            <div class="input-field col s12 l12">
+                <div class="chips"></div>
+                <label for="materia">insira as matérias referente a esse semestre e curso</label>
+            </div>
+        </fieldset>
+        <div class="right">
+            <a href="/" class="btn waves-effect waves-teal btn-flat btn-large" type="submit" name="action">
+            Cancelar
+            <i class="material-icons right">backspace</i>
+        </a>
+            <button class="btn waves-effect waves-teal btn-flat btn-large" type="submit" data-ng-click="semestreVm.create(semestre)"
+                name="action">
+            Cadastrar
+            <i class="material-icons right">done_all</i>
+        </button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+        $('.chips').material_chip();
+    });
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+
+</script>
