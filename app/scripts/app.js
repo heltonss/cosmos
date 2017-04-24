@@ -50,6 +50,10 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'partials/semestre-form/semestre-form.html',
                 controller: 'semestreFormCtrl'
             })
+            .when('/cursos', {
+                templateUrl: 'partials/dash-cursos/cursos.html',
+                // controller: 'cursosCtrl'
+            })
         // $locationProvider.html5Mode({
         //     enabled: true,
         //     requireBase: false

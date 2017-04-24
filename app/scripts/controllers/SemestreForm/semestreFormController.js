@@ -3,7 +3,7 @@ var semestreFormControllers = angular.module('semestreFormControllers', [])
 semestreFormControllers.controller('semestreFormCtrl', ['$routeParams', 'listCursosService', 'crudCurso', 'crudSemestre',
     function semestreFormCtrl($routeParams, listCursosService, crudCurso, crudSemestre) {
         vm = this;
-        vm.create = create;
+        vm.update = update;
 
         var sanitizer = new Sanitizer()
         var suporte = new Suporte();
@@ -17,23 +17,46 @@ semestreFormControllers.controller('semestreFormCtrl', ['$routeParams', 'listCur
             }
         )
 
-        function create(semestre) {
-            var chips = $('.chips').material_chip('data');
+        function update(semestre) {
             var sem = new Semestre();
 
-            sem.curso = semestre.curso;
-            sem.ordinario = semestre.ordinario;
-            sem.materias = suporte.getMaterias(chips);
+            var chips1 = $('.primeiro').material_chip('data');
+            var chips2 = $('.segundo').material_chip('data');
+            var chips3 = $('.terceiro').material_chip('data');
+            var chips4 = $('.quarto').material_chip('data');
+            var chips5 = $('.quinto').material_chip('data');
+            var chips6 = $('.sexto').material_chip('data');
 
+            sem.curso = semestre.curso.nome;
+         
+            var id = semestre.curso._id;
+          
             var obj = {}
-            obj.curso = sem.curso;
+            obj.nome = sem.curso;
             obj.semestres = {};
-            obj.semestres[sem.ordinario] = {}
-            obj.semestres[sem.ordinario].materias = sem.materias;
+
+            obj.semestres.primeiro = {}
+            obj.semestres.primeiro.materias = suporte.getMaterias(chips1);
+
+            obj.semestres.segundo = {}
+            obj.semestres.segundo.materias = suporte.getMaterias(chips2);
+
+            obj.semestres.terceiro = {}
+            obj.semestres.terceiro.materias = suporte.getMaterias(chips3);
+            
+            obj.semestres.quarto = {}
+            obj.semestres.quarto.materias = suporte.getMaterias(chips4);
+
+            obj.semestres.quinto = {}
+            obj.semestres.quinto.materias = suporte.getMaterias(chips5);
+
+            obj.semestres.sexto = {}
+            obj.semestres.sexto.materias = suporte.getMaterias(chips6);
 
             var createSemestre = JSON.stringify(obj, null, " ");
-            console.log(createSemestre)
-            crudSemestre.save(createSemestre,
+            console.log(createSemestre, sem.ordinario)
+
+            crudCurso.update({ id: id }, createSemestre,
                 function success(res) {
                     console.log('semestre foi salvo com exito')
                 },
