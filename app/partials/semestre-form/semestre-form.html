@@ -1,0 +1,92 @@
+<div data-ng-include="'./../partials/menu/menu.html'"></div>
+<div class="row">
+    <form data-ng-controller="semestreFormCtrl as semestreVm">
+        <fieldset>
+            <legend>selecione o curso</legend>
+            <div class="input-field col s12 l6">
+                <select id="curso" data-ng-model="semestre.curso" data-ng-options="cursos.nome for cursos in semestreVm.listarCursos">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <option value="" disabled selected>Curso</option>  
+                </select>
+                <label>Curso</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>cadastro do 1º semestre</legend>
+            <div class="input-field col s12 l12">
+                <input type="hidden" data-ng-model="semestre.semestres.primeiro" name="primeiro" data-ng-init="semestre.semestres.primeiro='primeiro'"
+                    ng-value="primeiro" />
+                <div class="chips primeiro"></div>
+                <label for="materia">insira as matérias referente a esse semestre e curso</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>cadastro do 2º semestre</legend>
+            <div class="input-field col s12 l12">
+                <input type="hidden" data-ng-model="semestre.semestres.segundo" name="segundo" data-ng-init="semestre.semestres.segundo='segundo'"
+                    ng-value="primeiro" />
+                <div class="chips segundo"></div>
+                <label for="materia">insira as matérias referente a esse semestre e curso</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>cadastro do 3º semestre</legend>
+            <div class="input-field col s12 l12">
+                <input type="hidden" data-ng-model="semestre.semestres.terceiro" name="terceiro" data-ng-init="semestre.semestres.terceiro='terceiro'"
+                    ng-value="primeiro" />
+                <div class="chips terceiro"></div>
+                <label for="materia">insira as matérias referente a esse semestre e curso</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>cadastro do 4º semestre</legend>
+            <div class="input-field col s12 l12">
+                <input type="hidden" data-ng-model="semestre.semestres.quarto" name="quarto" data-ng-init="semestre.semestres.quarto='quarto'"
+                    ng-value="primeiro" />
+                <div class="chips quarto"></div>
+                <label for="materia">insira as matérias referente a esse semestre e curso</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>cadastro do 5º semestre</legend>
+            <div class="input-field col s12 l12">
+                <input type="hidden" data-ng-model="semestre.semestres.quinto" name="quinto" data-ng-init="semestre.semestres.quinto='quinto'"
+                    ng-value="primeiro" />
+                <div class="chips quinto"></div>
+                <label for="materia">insira as matérias referente a esse semestre e curso</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>cadastro do 6º semestre</legend>
+            <div class="input-field col s12 l12">
+                <input type="hidden" data-ng-model="semestre.semestres.sexto" name="sexto" data-ng-init="semestre.semestres.sexto='sexto'"
+                    ng-value="primeiro" />
+                <div class="chips sexto"></div>
+                <label for="materia">insira as matérias referente a esse semestre e curso</label>
+        </fieldset>
+        <div class="right">
+            <a href="/" class="btn waves-effect waves-teal btn-flat btn-large" type="submit" name="action">
+            Cancelar
+            <i class="material-icons right">backspace</i>
+        </a>
+            <button class="btn waves-effect waves-teal btn-flat btn-large" type="submit" data-ng-click="semestreVm.update(semestre)"
+                name="action">
+            Cadastrar
+            <i class="material-icons right">done_all</i>
+        </button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+        $('.chips').material_chip();
+    });
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+
+</script>

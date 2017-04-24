@@ -7,9 +7,13 @@ var appCosmos = angular.module('appCosmos', [
     'professorFormControllers',
     'diretorFormControllers',
     'coordenadorFormControllers',
+    'semestreFormControllers',
+    'cursoControllers',
     'colaboradorService',
     'alunoService',
-    'professorService'
+    'professorService',
+    'cursoService',
+    'semestreService'
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
@@ -41,6 +45,14 @@ appCosmos.config(['$routeProvider', '$locationProvider',
             .when('/cadastro-aluno', {
                 templateUrl: 'partials/aluno-form/aluno-form.html',
                 controller: 'alunoFormCtrl'
+            })
+            .when('/cadastro-semestre', {
+                templateUrl: 'partials/semestre-form/semestre-form.html',
+                controller: 'semestreFormCtrl'
+            })
+            .when('/cursos', {
+                templateUrl: 'partials/dash-cursos/cursos.html',
+                // controller: 'cursosCtrl'
             })
         // $locationProvider.html5Mode({
         //     enabled: true,

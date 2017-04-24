@@ -7,6 +7,7 @@ professorFormControllers.controller('professorFormCtrl', ['crudProfessor', '$rou
 
         var vm = this;
         var sanitizer = new Sanitizer();
+        var suporte = new Suporte();
 
         vm.create = create;
         vm.update = update;
@@ -29,7 +30,7 @@ professorFormControllers.controller('professorFormCtrl', ['crudProfessor', '$rou
             prof.foto = sanitizer.sanitizer(professor.foto);
             prof.endereco = sanitizer.sanitizer(professor.endereco);
             prof.infoAcademica = sanitizer.sanitizer(professor.infoAcademica);
-            prof.materias = prof.getMaterias(chips);
+            prof.materias = suporte.getMaterias(chips);
             prof.contato = sanitizer.sanitizer(professor.contato);
 
 
