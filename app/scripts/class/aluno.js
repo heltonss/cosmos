@@ -7,7 +7,7 @@ function Aluno(
     naturalidade,
     sexo,
     foto,
-    nota,
+    disciplinas,
     matricula,
     endereco,
     contato
@@ -18,7 +18,7 @@ function Aluno(
     this.naturalidade = naturalidade;
     this.sexo = sexo;
     this.foto = foto;
-    this.nota = nota;
+    this.disciplinas = disciplinas;
     this.matricula = matricula;
     this.endereco = endereco;
     this.contato = contato;
