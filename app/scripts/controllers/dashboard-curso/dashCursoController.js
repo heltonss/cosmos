@@ -2,8 +2,8 @@
 
 var dashCursoControllers = angular.module('dashCursoControllers', []);
 
-dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores',
-    function dashCursoCtrl($routeParams, crudCurso, listarProfessores) {
+dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores','listarAlunos',
+    function dashCursoCtrl($routeParams, crudCurso, listarProfessores, listarAlunos) {
         var vm = this;
 
         var id = $routeParams.id;
@@ -26,5 +26,16 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
                 console.log('error', JSON.stringify(err))
             }
         )
+
+        listarAlunos.get({},
+            function success(res) {
+                vm.alunos = res
+            },
+            function error(err) {
+                console.log('error', JSON.stringify(err))
+            }
+        )
+
+        
     }
 ])

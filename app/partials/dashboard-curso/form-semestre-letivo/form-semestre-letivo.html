@@ -43,6 +43,46 @@
                 <label>Semetre</label>
             </div>
         </fieldset>
+        <fieldset>
+            <legend>Escolha os alunos legíveis para esse semestre: {{curso.semestre.semestre}}</legend>
+            <div class="row" data-ng-repeat="aluno in vmCurso.alunos">
+                <div class="col s12 m6 l4">
+                    <div class="card-panel grey lighten-3">
+                        <div class="row valign-wrapper">
+                            <div>
+                                <div class="col s3">
+                                    <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" class="responsive-img circle" alt="">
+                                </div>
+                                <div class="col s9">
+                                    <span class="col s12">{{aluno.nome}} {{aluno.sobrenome}}</span>
+                                    <span class="col s12">RA: {{aluno.matricula.numero}}</span>
+                                </div>
+                                <div class="right">
+                                    <div class="switch ">
+                                        <label>
+                                        não
+                                        <input type="checkbox">
+                                        <span class="lever"></span>
+                                        sim
+                                     </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="right">
+            <a href="/" class="btn waves-effect waves-teal btn-flat btn-large" type="submit" name="action">
+            Cancelar
+            <i class="material-icons right">backspace</i>
+        </a>
+            <button class="btn waves-effect waves-teal btn-flat btn-large" type="submit" name="action">
+            Cadastrar
+            <i class="material-icons right">done_all</i>
+        </button>
+        </div>
     </form>
 </div>
 <script>
