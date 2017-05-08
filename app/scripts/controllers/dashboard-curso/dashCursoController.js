@@ -45,7 +45,8 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
 
         function createSemestre(semestre) {
             var sem = new Semestre();
-            sem.ano = semestre.ano
+            sem.ano = semestre.ano;
+            sem.curso = vm.curso.nome;
             sem.semestre = semestre.semestre.semestre;
             sem.disciplina = vm.disciplina;
             sem.professor = semestre.professor.nome
@@ -53,6 +54,15 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
 
             var createSemestre = JSON.stringify(sem, null, " ")
             console.log(createSemestre)
+
+            crudSemestre.save(createSemestre,
+                function success(res) {
+                    console.log('semestre salvo')
+                },
+                function error(err) {
+                    console.log('error', err)
+                }
+            )
 
 
         }

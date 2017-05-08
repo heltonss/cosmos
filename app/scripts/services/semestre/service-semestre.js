@@ -2,7 +2,7 @@
 
 var semestreService = angular.module('semestreService', ['ngResource']);
 var urlEndPoint = 'http://localhost:5000/';
-var resourceSemestre
+var resourceSemestre = 'semestres'
 
 semestreService.factory('crudSemestre', ['$resource',
 	function ($resource) {
