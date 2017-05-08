@@ -66,7 +66,7 @@ alunoFormControllers.controller('alunoFormCtrl', ['crudAluno', '$routeParams',
 
             crudAluno.save(createAluno,
                 function success(res) {
-                    console.log("colaborador salvo no banco")
+                    console.log("aluno salvo no banco")
                 },
                 function error(resError) {
                     console.log("erro" + JSON.stringify(resError));

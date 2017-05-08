@@ -1,11 +1,15 @@
 'use strict'
 
 function Semestre(
+    ano,
     curso,
     semestre,
-    materias
+    disciplina,
+    alunosMatriculados
 ) {
+    this.ano = ano;
     this.curso = curso;
     this.semestre = semestre;
-    this.materias = materias;
+    this.disciplina = disciplina;
+    this.alunosMatriculados = alunosMatriculados;
 }

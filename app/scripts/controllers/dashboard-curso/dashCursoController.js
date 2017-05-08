@@ -2,11 +2,18 @@
 
 var dashCursoControllers = angular.module('dashCursoControllers', []);
 
-dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores','listarAlunos',
-    function dashCursoCtrl($routeParams, crudCurso, listarProfessores, listarAlunos) {
+dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores', 'listarAlunos', 'crudSemestre',
+    function dashCursoCtrl($routeParams, crudCurso, listarProfessores, listarAlunos, crudSemestre) {
         var vm = this;
 
         var id = $routeParams.id;
+        vm.createSemestre = createSemestre;
+        // vm.addListaAlunos = addListaAlunos;
+        vm.addAluno = addAluno;
+        vm.removeAluno = removeAluno;
+        vm.addDisciplina = addDisciplina;
+        vm.removeDisciplina = removeDisciplina;
+        var matriculados = []
 
         crudCurso.get({ id: id },
             function success(res) {
@@ -36,6 +43,58 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             }
         )
 
-        
+        function createSemestre(semestre) {
+            var sem = new Semestre();
+            sem.ano = semestre.ano
+            sem.semestre = semestre.semestre.semestre;
+            sem.disciplina = vm.disciplina;
+            sem.professor = semestre.professor.nome
+            sem.alunosMatriculados = matriculados
+
+            var createSemestre = JSON.stringify(sem, null, " ")
+            console.log(createSemestre)
+
+
+        }
+
+        function addAluno(aluno) {
+            return matriculados.push({
+                nome: aluno,
+                notas: []
+            })
+        }
+
+
+        function removeAluno(aluno) {
+            return matriculados = matriculados.filter(function (elem) {
+                return elem.nome !== aluno
+           
+         
+            })
+        }
+
+        function addDisciplina() {
+            var inputs = document.getElementsByTagName('input');
+            var size = inputs.length;
+            for (var i = 0; i < size; i++) {
+                if (inputs[i].type == 'checkbox' && inputs[i].checked) {
+                    vm.disciplina = inputs[i].value
+                }
+
+            }
+
+        }
+
+        function removeDisciplina() {
+            var inputs = document.getElementsByTagName('input');
+            var size = inputs.length;
+            for (var i = 0; i < size; i++) {
+                if (inputs[i].type == 'checkbox' && !inputs[i].checked) {
+                    vm.disciplina = '';
+                }
+
+            }
+        }
+
     }
 ])

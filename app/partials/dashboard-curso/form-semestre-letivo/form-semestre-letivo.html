@@ -1,7 +1,7 @@
 <div data-ng-include="'./../partials/menu/menu.html'"></div>
 <div class="row">
-    <div class="card-panel">
-        <span>Cadastrar semestre letivo</span>
+    <div class="card-panel" data-ng-controller="dashCursoCtrl as vmCurso">
+        <span>Cadastrar semestre letivo - {{vmCurso.curso.nome}} </span>
     </div>
 </div>
 <div class="row" data-ng-controller="dashCursoCtrl as vmCurso">
@@ -9,7 +9,7 @@
         <fieldset>
             <legend>Determine o ano e o semetre</legend>
             <div class="input-field col s12 l2">
-                <select>
+                <select data-ng-model="semestre.ano">
                 <option value="" disabled selected>Escolha o ano</option>
                 <option value="2014">2014</option>
                 <option value="2015">2015</option>
@@ -20,15 +20,16 @@
                 <label>Define o ano do semestre</label>
             </div>
             <div class="input-field col s12 l2">
-                <select id="curso" data-ng-model="curso.semestre" data-ng-options="curso.semestre for curso in vmCurso.curso.semestres | orderBy: reverse:true">
+                <select id="curso" data-ng-model="semestre.semestre" data-ng-options="curso.semestre for curso in vmCurso.curso.semestres | orderBy: reverse:true">
                     <i class="material-icons prefix">perm_identity</i>
                     <option value="" disabled selected>escolha o semestre</option>  
                 </select>
                 <label>Semetre</label>
             </div>
-            <div data-ng-repeat="disciplina in curso.semestre.disciplinas">
+            <div data-ng-repeat="disciplina in semestre.semestre.disciplinas">
                 <div class="col s12 l4">
-                    <input value="{{disciplina}}" type="checkbox" id="{{disciplina}}" />
+                    <input value="{{disciplina}}" required data-ng-model="confirmarDisciplina" data-ng-change="confirmarDisciplina ? vmCurso.addDisciplina() : vmCurso.removeDisciplina()" type="checkbox"
+                        id="{{disciplina}}" />
                     <label for="{{disciplina}}">{{ disciplina }}</label>
                 </div>
             </div>
@@ -36,7 +37,7 @@
         <fieldset>
             <legend>Escolha o professor</legend>
             <div class="input-field col s12 l12">
-                <select id="curso" data-ng-model="materia.professor" data-ng-options="professor.nome for professor in vmCurso.professores">
+                <select id="curso" data-ng-model="semestre.professor" data-ng-options="professor.nome for professor in vmCurso.professores">
                     <i class="material-icons prefix">perm_identity</i>
                     <option value="" disabled selected>escolha o professor</option>  
                 </select>
@@ -45,8 +46,8 @@
         </fieldset>
         <fieldset>
             <legend>Escolha os alunos legíveis para esse semestre: {{curso.semestre.semestre}}</legend>
-            <div class="row" data-ng-repeat="aluno in vmCurso.alunos">
-                <div class="col s12 m6 l4">
+            <div class="row">
+                <div class="col s12 m6 l4" data-ng-repeat="aluno in vmCurso.alunos">
                     <div class="card-panel grey lighten-3">
                         <div class="row valign-wrapper">
                             <div>
@@ -61,7 +62,7 @@
                                     <div class="switch ">
                                         <label>
                                         não
-                                        <input type="checkbox">
+                                        <input value="{{aluno.nome}}" data-aluno="aluno" data-ng-model="confirmarAluno" data-ng-change=" confirmarAluno ? vmCurso.addAluno(aluno.nome +' '+ aluno.sobrenome) : vmCurso.removeAluno(aluno.nome +' '+ aluno.sobrenome)" type="checkbox">
                                         <span class="lever"></span>
                                         sim
                                      </label>
@@ -78,7 +79,8 @@
             Cancelar
             <i class="material-icons right">backspace</i>
         </a>
-            <button class="btn waves-effect waves-teal btn-flat btn-large" type="submit" name="action">
+            <button class="btn waves-effect waves-teal btn-flat btn-large" data-ng-click="vmCurso.createSemestre(semestre)" type="submit"
+                name="action">
             Cadastrar
             <i class="material-icons right">done_all</i>
         </button>
