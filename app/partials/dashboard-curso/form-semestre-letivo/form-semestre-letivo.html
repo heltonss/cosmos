@@ -1,0 +1,95 @@
+<div data-ng-include="'./../partials/menu/menu.html'"></div>
+<div class="row">
+    <div class="card-panel" data-ng-controller="dashCursoCtrl as vmCurso">
+        <span>Cadastrar semestre letivo - {{vmCurso.curso.nome}} </span>
+    </div>
+</div>
+<div class="row" data-ng-controller="dashCursoCtrl as vmCurso">
+    <form>
+        <fieldset>
+            <legend>Determine o ano e o semetre</legend>
+            <div class="input-field col s12 l2">
+                <select data-ng-model="semestre.ano">
+                <option value="" disabled selected>Escolha o ano</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+            </select>
+                <label>Define o ano do semestre</label>
+            </div>
+            <div class="input-field col s12 l2">
+                <select id="curso" data-ng-model="semestre.semestre" data-ng-options="curso.semestre for curso in vmCurso.curso.semestres | orderBy: reverse:true">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <option value="" disabled selected>escolha o semestre</option>  
+                </select>
+                <label>Semetre</label>
+            </div>
+            <div data-ng-repeat="disciplina in semestre.semestre.disciplinas">
+                <div class="col s12 l4">
+                    <input value="{{disciplina}}" required data-ng-model="confirmarDisciplina" data-ng-change="confirmarDisciplina ? vmCurso.addDisciplina() : vmCurso.removeDisciplina()" type="checkbox"
+                        id="{{disciplina}}" />
+                    <label for="{{disciplina}}">{{ disciplina }}</label>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Escolha o professor</legend>
+            <div class="input-field col s12 l12">
+                <select id="curso" data-ng-model="semestre.professor" data-ng-options="professor.nome for professor in vmCurso.professores">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <option value="" disabled selected>escolha o professor</option>  
+                </select>
+                <label>Semetre</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Escolha os alunos legíveis para esse semestre: {{curso.semestre.semestre}}</legend>
+            <div class="row">
+                <div class="col s12 m6 l4" data-ng-repeat="aluno in vmCurso.alunos">
+                    <div class="card-panel grey lighten-3">
+                        <div class="row valign-wrapper">
+                            <div>
+                                <div class="col s3">
+                                    <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" class="responsive-img circle" alt="">
+                                </div>
+                                <div class="col s9">
+                                    <span class="col s12">{{aluno.nome}} {{aluno.sobrenome}}</span>
+                                    <span class="col s12">RA: {{aluno.matricula.numero}}</span>
+                                </div>
+                                <div class="right">
+                                    <div class="switch ">
+                                        <label>
+                                        não
+                                        <input value="{{aluno.nome}}" data-aluno="aluno" data-ng-model="confirmarAluno" data-ng-change=" confirmarAluno ? vmCurso.addAluno(aluno.nome +' '+ aluno.sobrenome) : vmCurso.removeAluno(aluno.nome +' '+ aluno.sobrenome)" type="checkbox">
+                                        <span class="lever"></span>
+                                        sim
+                                     </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="right">
+            <a href="/" class="btn waves-effect waves-teal btn-flat btn-large" type="submit" name="action">
+            Cancelar
+            <i class="material-icons right">backspace</i>
+        </a>
+            <button class="btn waves-effect waves-teal btn-flat btn-large" data-ng-click="vmCurso.createSemestre(semestre)" type="submit"
+                name="action">
+            Cadastrar
+            <i class="material-icons right">done_all</i>
+        </button>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+
+</script>

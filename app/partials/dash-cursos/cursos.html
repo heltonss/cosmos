@@ -1,13 +1,9 @@
 <div data-ng-include="'./../partials/menu/menu.html'"></div>
 <h1></h1>
-<div class="row">
-    <div class="col l4">
-        <a href="#" class="waves-effect waves-light btn btn-large col l12 ">sistemas para internet{{}}</a>
-    </div>
-    <div class="col l4">
-        <a href="#" class="waves-effect waves-light btn btn-large col l12 ">sistemas para internet{{}}</a>
-    </div>
-    <div class="col l4">
-        <a href="#" class="waves-effect waves-light btn btn-large col l12">sistemas para internet{{}}</a>
+<div class="row" data-ng-controller="cursoCtrl as vmCursos">
+    <div data-ng-repeat="cursos in vmCursos.listarCursos">
+        <div class="col l4">
+            <a href="#!/dashboard-curso/{{cursos._id}}" class="waves-effect waves-light btn btn-large col l12 ">{{ cursos.nome }}</a>
+        </div>
     </div>
 </div>
