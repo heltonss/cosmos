@@ -37,7 +37,7 @@ semestreService.factory('crudSemestre', ['$resource',
 
 semestreService.factory('listarSemestre', ['$resource',
 	function ($resource) {
-		return $resource(urlEndPoint + 'semestre', {}, {
+		return $resource(urlEndPoint + resourceSemestre, {}, {
 			get: {
 				method: 'GET',
 				cache: false,
