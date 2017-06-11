@@ -35,7 +35,7 @@ alunoService.factory('crudAluno', ['$resource',
     }
 ])
 
-alunoService.factory('listarAlunos', ['$resource',
+alunoService.factory('listarAlunosService', ['$resource',
     function ($resource) {
         return $resource(urlEndPoint + resourceAlunos, {}, {
             get: {

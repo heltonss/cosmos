@@ -10,6 +10,7 @@ var appCosmos = angular.module('appCosmos', [
     'semestreFormControllers',
     'dashCursoControllers',
     'cursoControllers',
+    'listarAlunosControllers',
     'colaboradorService',
     'alunoService',
     'professorService',
@@ -60,8 +61,12 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 controller: 'dashCursoCtrl'
             })
             .when('/cadastro-semestre-letivo/:id', {
-                templateUrl: 'partials/dashboard-curso/form-semestre-letivo/form-semestre-letivo.html',
+                templateUrl: 'partials/dashboard-Curso/form-semestre-letivo/form-semestre-letivo.html',
                 controller: 'dashCursoCtrl'
+            })
+            .when('/listar-alunos', {
+                templateUrl: 'partials/Listar-alunos/listar-alunos.html',
+                controller: 'listarAlunosCtrl'
             })
         // $locationProvider.html5Mode({
         //     enabled: true,
