@@ -9,7 +9,6 @@ listarAlunosControllers.controller('listarAlunosCtrl', ['crudAluno', 'listarAlun
     listarAlunosService.get({},
       function success(res) {
         vm.listarAlunos = res;
-        console.log(res)
       },
       function error (err) {
         console.log('error', JSON.stringify(err));

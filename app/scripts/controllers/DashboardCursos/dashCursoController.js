@@ -2,8 +2,8 @@
 
 var dashCursoControllers = angular.module('dashCursoControllers', []);
 
-dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores', 'listarAlunosService', 'crudSemestre',
-    function dashCursoCtrl($routeParams, crudCurso, listarProfessores, listarAlunosService, crudSemestre) {
+dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores', 'listarAlunosService', 'crudSemestre', 'listarSemestre',
+    function dashCursoCtrl($routeParams, crudCurso, listarProfessores, listarAlunosService, crudSemestre, listarSemestre) {
         var vm = this;
 
         var id = $routeParams.id;
@@ -24,7 +24,7 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             }
 
         )
-
+        
         listarProfessores.get({},
             function success(res) {
                 vm.professores = res;
@@ -78,8 +78,8 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
         function removeAluno(aluno) {
             return matriculados = matriculados.filter(function (elem) {
                 return elem.nome !== aluno
-           
-         
+
+
             })
         }
 
@@ -106,5 +106,24 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             }
         }
 
+
+        //referente aos semestres.
+        listarSemestre.get({},
+            function success(res) {
+                vm.listarSemestre = res
+            },
+            function error(err) {
+                console.log('error', JSON.stringify(err))
+            }
+        )
+
+        crudSemestre.get({ id: id },
+            function success(res) {
+                vm.semestre = res
+            },
+            function error(err) {
+                console.log('error', JSON.stringify(err))
+            }
+        )
     }
 ])
