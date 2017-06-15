@@ -24,7 +24,7 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             }
 
         )
-
+        
         listarProfessores.get({},
             function success(res) {
                 vm.professores = res;
@@ -106,15 +106,24 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             }
         }
 
+
+        //referente aos semestres.
         listarSemestre.get({},
             function success(res) {
                 vm.listarSemestre = res
-                console.log(res)
             },
             function error(err) {
                 console.log('error', JSON.stringify(err))
             }
         )
 
+        crudSemestre.get({ id: id },
+            function success(res) {
+                vm.semestre = res
+            },
+            function error(err) {
+                console.log('error', JSON.stringify(err))
+            }
+        )
     }
 ])
