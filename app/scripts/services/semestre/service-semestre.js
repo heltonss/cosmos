@@ -11,7 +11,7 @@ semestreService.factory('crudSemestre', ['$resource',
 				method: 'GET',
 				url: urlEndPoint + resourceSemestre +'/:id',
 				cache: false,
-				isArray: true
+				isArray: false
 			},
 			save: {
 				method: 'POST',

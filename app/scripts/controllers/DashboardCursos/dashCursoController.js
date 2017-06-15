@@ -122,7 +122,7 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
                 vm.semestre = res
             },
             function error(err) {
-                console.log('error', JSON.stringify(err))
+                console.log('error ',err )
             }
         )
     }

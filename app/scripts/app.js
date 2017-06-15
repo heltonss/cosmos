@@ -68,7 +68,7 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'partials/Listar-alunos/listar-alunos.html',
                 controller: 'listarAlunosCtrl'
             })
-            .when('/selecionar-disciplina/:id', {
+            .when('/disciplina/:id', {
                 templateUrl: 'partials/dashboard-curso/selecionar-disciplina/selecionar-disciplina.html',
                 controller: 'dashCursoCtrl'
             })
