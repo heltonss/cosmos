@@ -13,6 +13,8 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
         vm.removeAluno = removeAluno;
         vm.addDisciplina = addDisciplina;
         vm.removeDisciplina = removeDisciplina;
+        vm.inserirNota = inserirNota;
+        vm.calcularMedia = calcularMedia;
         var matriculados = []
 
         crudCurso.get({ id: id },
@@ -24,7 +26,7 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             }
 
         )
-        
+
         listarProfessores.get({},
             function success(res) {
                 vm.professores = res;
@@ -63,25 +65,8 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
                     console.log('error', err)
                 }
             )
-
-
         }
 
-        function addAluno(aluno) {
-            return matriculados.push({
-                nome: aluno,
-                notas: []
-            })
-        }
-
-
-        function removeAluno(aluno) {
-            return matriculados = matriculados.filter(function (elem) {
-                return elem.nome !== aluno
-
-
-            })
-        }
 
         function addDisciplina() {
             var inputs = document.getElementsByTagName('input');
@@ -122,8 +107,40 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
                 vm.semestre = res
             },
             function error(err) {
-                console.log('error ',err )
+                console.log('error ', err)
             }
         )
+
+        //referente a aluno
+        function addAluno(aluno) {
+            return matriculados.push({
+                nome: aluno,
+                notas: []
+            })
+        }
+
+
+        function removeAluno(aluno) {
+            return matriculados = matriculados.filter(function (elem) {
+                return elem.nome !== aluno
+            })
+        }
+
+        function inserirNota() {
+            console.log('inserido 10')
+        }
+
+        function calcularMedia(arrAlunos) {
+            var size = arrAlunos.length;
+            for (var i = 0; i < size; i++) {
+                var aluno = arrAlunos[i];
+                var notas = aluno.notas;
+                var qtdNotas = notas.length;
+                var sumNotas = notas.reduce(function (total, num) {
+                    return total + num;
+                });
+              return vm.media = sumNotas / qtdNotas;
+            }
+        }
     }
 ])

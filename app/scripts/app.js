@@ -15,7 +15,8 @@ var appCosmos = angular.module('appCosmos', [
     'alunoService',
     'professorService',
     'cursoService',
-    'semestreService'
+    'semestreService',
+    'mediaAlunoFilter'
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
