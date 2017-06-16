@@ -4,6 +4,14 @@
         <span class="black-text">disciplina de {{ vmSemestre.semestre.disciplina }} do {{ vmSemestre.semestre.semestre }} semestre - {{vmSemestre.semestre.curso}}</span>
     </div>
     <h1 class="title-main center">alunos matriculados</h1>
+    <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <span class="card-title"></span>
+            <p>Média Geral: {{vmSemestre.mediaGeral}} </p>
+            <p>Professor: {{vmSemestre.semestre.professor | uppercase}} </p>
+        </div>
+        
+    </div>
     <div class="row">
         <table class="highlight">
             <thead>
@@ -19,7 +27,7 @@
                     <td>{{aluno.nome}}</td>
                     <td>{{aluno.notas}}</td>
                     <td></td>
-                    <td>{{aluno.notas | mediaNotas}}</td>
+                    <td>{{aluno.notas |  mediaNotas}}</td>
                     <td></td>
                     <td><a data-ng-click="vmSemestre.inserirNota()" href="modalNota" class="waves-effect waves-light btn">Inserir nota</a></td>
                     <td><a class="waves-effect waves-light btn">Inserir falta</a></td>

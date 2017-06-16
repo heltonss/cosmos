@@ -14,7 +14,7 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
         vm.addDisciplina = addDisciplina;
         vm.removeDisciplina = removeDisciplina;
         vm.inserirNota = inserirNota;
-        vm.calcularMedia = calcularMedia;
+        vm.calcularMediaGeral = calcularMediaGeral;
         var matriculados = []
 
         crudCurso.get({ id: id },
@@ -105,6 +105,7 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
         crudSemestre.get({ id: id },
             function success(res) {
                 vm.semestre = res
+                // vm.calcularMediaGeral(res.alunosMatriculados)
             },
             function error(err) {
                 console.log('error ', err)
@@ -119,7 +120,6 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             })
         }
 
-
         function removeAluno(aluno) {
             return matriculados = matriculados.filter(function (elem) {
                 return elem.nome !== aluno
@@ -130,17 +130,24 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             console.log('inserido 10')
         }
 
-        function calcularMedia(arrAlunos) {
+        function calcularMediaGeral(arrAlunos) {
             var size = arrAlunos.length;
+            var mediaGeral = [];
             for (var i = 0; i < size; i++) {
                 var aluno = arrAlunos[i];
                 var notas = aluno.notas;
                 var qtdNotas = notas.length;
-                var sumNotas = notas.reduce(function (total, num) {
+                var somarNotasAluno = notas.reduce(function (total, num) {
                     return total + num;
                 });
-              return vm.media = sumNotas / qtdNotas;
+                var media = somarNotasAluno / qtdNotas;
+                mediaGeral.push(media);
             }
+            var qtdAlunos = mediaGeral.length;
+            var somarNotasAlunos = mediaGeral.reduce(function (total, num) {
+                return total + num;
+            });
+            vm.mediaGeral = somarNotasAlunos / qtdAlunos;
         }
     }
 ])
