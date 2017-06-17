@@ -75,6 +75,10 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'partials/dashboard-curso/disciplina/disciplina.html',
                 controller: 'gestaoDisciplinaCtrl'
             })
+            .when('/painel-notificacao', {
+                templateUrl: 'partials/painel-notificacao/painel-notificacao.html',
+                controller: 'gestaoDisciplinaCtrl'
+            })
         // $locationProvider.html5Mode({
         //     enabled: true,
         //     requireBase: false
