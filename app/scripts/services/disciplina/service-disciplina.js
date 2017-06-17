@@ -4,7 +4,6 @@ var disciplinaService = angular.module('disciplinaService', [])
 
 disciplinaService.service('gestaoDisciplina', function () {
     this.calcMedia = function (arrAlunos) {
-
         var size = arrAlunos.length;
         var mediaGeral = [];
         for (var i = 0; i < size; i++) {
@@ -27,5 +26,9 @@ disciplinaService.service('gestaoDisciplina', function () {
             return total + num;
         });
         return somarNotasAlunos / qtdAlunos;
+    }
+
+    this.calcFrequenciaProfessor = function (qtdAulas, qtdFaltas) {
+        return qtdFaltas / qtdAulas
     }
 })
