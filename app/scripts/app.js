@@ -20,7 +20,8 @@ var appCosmos = angular.module('appCosmos', [
     'semestreService',
     'disciplinaService',
     'disciplinaAlertaService',
-    'mediaAlunoFilter'
+    'mediaAlunoFilter',
+    'elementsHtmlDirective'
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',

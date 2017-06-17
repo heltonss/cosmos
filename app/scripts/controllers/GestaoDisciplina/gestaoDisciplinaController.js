@@ -35,8 +35,6 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
             }
         }
 
-        inserirDisciplinaAlerta(disciplina)
-
         crudSemestre.update({ id: id }, disciplina,
             function success() {
                 console.log('salvou')
@@ -45,6 +43,8 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
                 console.log('error ', err)
             }
         )
+        
+        inserirDisciplinaAlerta(disciplina)
         window.location.reload()
     }
 

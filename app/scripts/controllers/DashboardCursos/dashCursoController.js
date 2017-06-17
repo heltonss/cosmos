@@ -8,7 +8,6 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
 
         var id = $routeParams.id;
         vm.createSemestre = createSemestre;
-        // vm.addListaAlunos = addListaAlunos;
         vm.addAluno = addAluno;
         vm.removeAluno = removeAluno;
         vm.addDisciplina = addDisciplina;
