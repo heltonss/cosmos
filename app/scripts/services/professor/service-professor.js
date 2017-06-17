@@ -10,7 +10,7 @@ professorService.factory('crudProfessor', ['$resource',
             get: {
                 method: 'GET',
                 url: urlEndPoint + resourceProfessores + '/:id',
-                cache: false,
+                cache: true,
                 isArray: false
             },
             save: {

@@ -28,20 +28,24 @@
             </div>
             <div data-ng-repeat="disciplina in semestre.semestre.disciplinas">
                 <div class="col s12 l4">
-                    <input value="{{disciplina}}" required data-ng-model="confirmarDisciplina" data-ng-change="confirmarDisciplina ? vmCurso.addDisciplina() : vmCurso.removeDisciplina()" type="checkbox"
-                        id="{{disciplina}}" />
+                    <input value="{{disciplina}}" required data-ng-model="confirmarDisciplina" data-ng-change="confirmarDisciplina ? vmCurso.addDisciplina() : vmCurso.removeDisciplina()"
+                        type="checkbox" id="{{disciplina}}" />
                     <label for="{{disciplina}}">{{ disciplina }}</label>
                 </div>
             </div>
         </fieldset>
         <fieldset>
-            <legend>Escolha o professor</legend>
-            <div class="input-field col s12 l12">
+            <legend>Escolha o professor e determine o número de aulas</legend>
+            <div class="input-field col s6 l6">
                 <select id="curso" data-ng-model="semestre.professor" data-ng-options="professor.nome for professor in vmCurso.professores">
                     <i class="material-icons prefix">perm_identity</i>
                     <option value="" disabled selected>escolha o professor</option>  
                 </select>
-                <label>Semetre</label>
+                <label>Semestre</label>
+            </div>
+            <div class="input-field col s3 l3">
+                <input data-ng-model="semestre.qtdAulas" type="number" min="0" id="last_name" value="0" class="validate" required>
+                <label for="last_name">Quantidade de aulas</label>
             </div>
         </fieldset>
         <fieldset>

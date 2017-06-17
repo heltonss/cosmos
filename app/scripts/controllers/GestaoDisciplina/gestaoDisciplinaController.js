@@ -29,10 +29,8 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
             var notas = disciplina.alunosMatriculados[i].notas;
             if (vm.nome == disciplina.alunosMatriculados[i].nome) {
                 notas.push(vm.nota)
-                console.log('object', disciplina)
             }
         }
-        console.log(JSON.stringify(disciplina, null, ' '))
         crudSemestre.update({ id: id }, disciplina,
             function success() {
                 console.log('salvou')
@@ -41,5 +39,6 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
                 console.log('error ', err)
             }
         )
+        window.location.reload()
     }
 }])
