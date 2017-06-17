@@ -13,8 +13,6 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
         vm.removeAluno = removeAluno;
         vm.addDisciplina = addDisciplina;
         vm.removeDisciplina = removeDisciplina;
-        vm.inserirNota = inserirNota;
-        vm.calcularMediaGeral = calcularMediaGeral;
         var matriculados = []
 
         crudCurso.get({ id: id },
@@ -102,15 +100,6 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             }
         )
 
-        crudSemestre.get({ id: id },
-            function success(res) {
-                vm.semestre = res
-                // vm.calcularMediaGeral(res.alunosMatriculados)
-            },
-            function error(err) {
-                console.log('error ', err)
-            }
-        )
 
         //referente a aluno
         function addAluno(aluno) {
@@ -126,28 +115,5 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             })
         }
 
-        function inserirNota() {
-            console.log('inserido 10')
-        }
-
-        function calcularMediaGeral(arrAlunos) {
-            var size = arrAlunos.length;
-            var mediaGeral = [];
-            for (var i = 0; i < size; i++) {
-                var aluno = arrAlunos[i];
-                var notas = aluno.notas;
-                var qtdNotas = notas.length;
-                var somarNotasAluno = notas.reduce(function (total, num) {
-                    return total + num;
-                });
-                var media = somarNotasAluno / qtdNotas;
-                mediaGeral.push(media);
-            }
-            var qtdAlunos = mediaGeral.length;
-            var somarNotasAlunos = mediaGeral.reduce(function (total, num) {
-                return total + num;
-            });
-            vm.mediaGeral = somarNotasAlunos / qtdAlunos;
-        }
     }
 ])

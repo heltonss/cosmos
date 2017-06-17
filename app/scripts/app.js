@@ -11,11 +11,13 @@ var appCosmos = angular.module('appCosmos', [
     'dashCursoControllers',
     'cursoControllers',
     'listarAlunosControllers',
+    'gestaoDisciplinaControllers',
     'colaboradorService',
     'alunoService',
     'professorService',
     'cursoService',
     'semestreService',
+    'disciplinaService',
     'mediaAlunoFilter'
 ]);
 
@@ -70,8 +72,8 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 controller: 'listarAlunosCtrl'
             })
             .when('/disciplina/:id', {
-                templateUrl: 'partials/dashboard-curso/selecionar-disciplina/selecionar-disciplina.html',
-                controller: 'dashCursoCtrl'
+                templateUrl: 'partials/dashboard-curso/disciplina/disciplina.html',
+                controller: 'gestaoDisciplinaCtrl'
             })
         // $locationProvider.html5Mode({
         //     enabled: true,

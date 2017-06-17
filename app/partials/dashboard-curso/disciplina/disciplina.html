@@ -1,0 +1,57 @@
+<div data-ng-include="'./../partials/menu/menu.html'"></div>
+<div data-ng-controller="gestaoDisciplinaCtrl as vmDisciplina">
+    <div class="card-panel">
+        <span class="black-text">disciplina de <em>
+            {{ vmDisciplina.disciplina.disciplina }}</em> do <em>{{ vmDisciplina.disciplina.semestre }}</em> semestre - {{vmDisciplina.disciplina.curso}}</span>
+    </div>
+    <h1 class="title-main center">alunos matriculados</h1>
+    <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <span class="card-title"></span>
+            <p>Média Geral: {{ vmDisciplina.mediaGeral }} </p>
+            <p>Professor: {{vmDisciplina.disciplina.professor | uppercase}} </p>
+        </div>
+
+    </div>
+    <div class="row">
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th data-field="id">Nome do aluno</th>
+                    <th data-field="name">Notas</th>
+                    <th data-field="name">Faltas</th>
+                    <th data-field="price">Média</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="aluno in vmDisciplina.disciplina.alunosMatriculados">
+                    <td>{{aluno.nome}}</td>
+                    <td>{{aluno.notas}}</td>
+                    <td></td>
+                    <td>{{aluno.notas | mediaNotas}}</td>
+                    <td></td>
+                    <td><button data-target="modalNota" data-ng-click="vmDisciplina.recuperarAluno(vmDisciplina.disciplina._id,aluno.nome)"
+                            class="waves-effect waves-light btn">Inserir nota</button></td>
+                    <td><a class="waves-effect waves-light btn">Inserir falta</a></td>
+                </tr>
+        </table>
+        <div id="modalNota" class="modal col s3 offset-s4">
+            <div class="modal-content">
+                <h5>adicione uma nota</h5>
+                <div class="input-field ">
+                    <input data-ng-model="vmDisciplina.nota" placeholder="insira uma nota válida 0.0 a 10" id="nota" type="number" class="validate">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-ng-click="vmDisciplina.inserirNota()" class="modal-action modal-close waves-effect waves-green btn-flat">adicionar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+
+</script>
