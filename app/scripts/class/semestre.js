@@ -7,7 +7,7 @@ function Semestre(
     disciplina,
     professor,
     qtdAulas,
-    qtdFaltas,
+    qtdFaltasProfessor,
     alunosMatriculados
 ) {
     this.ano = ano;
@@ -16,6 +16,6 @@ function Semestre(
     this.disciplina = disciplina;
     this.professor = professor;
     this.qtdAulas = qtdAulas;
-    this.qtdFaltas = qtdFaltas;
+    this.qtdFaltasProfessor = qtdFaltasProfessor;
     this.alunosMatriculados = alunosMatriculados;
 }

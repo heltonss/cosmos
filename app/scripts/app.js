@@ -12,12 +12,14 @@ var appCosmos = angular.module('appCosmos', [
     'cursoControllers',
     'listarAlunosControllers',
     'gestaoDisciplinaControllers',
+    'disciplinaAlertaControllers',
     'colaboradorService',
     'alunoService',
     'professorService',
     'cursoService',
     'semestreService',
     'disciplinaService',
+    'disciplinaAlertaService',
     'mediaAlunoFilter'
 ]);
 
@@ -77,7 +79,7 @@ appCosmos.config(['$routeProvider', '$locationProvider',
             })
             .when('/painel-notificacao', {
                 templateUrl: 'partials/painel-notificacao/painel-notificacao.html',
-                controller: 'gestaoDisciplinaCtrl'
+                controller: 'disciplinaAlertaCtrl'
             })
         // $locationProvider.html5Mode({
         //     enabled: true,

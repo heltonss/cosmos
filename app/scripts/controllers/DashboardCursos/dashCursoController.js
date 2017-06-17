@@ -51,8 +51,9 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             sem.disciplina = vm.disciplina;
             sem.professor = semestre.professor.nome;
             sem.qtdAulas = semestre.qtdAulas;
-            sem.qtdFaltas = 0;
+            sem.qtdFaltasProfessor = 0;
             sem.alunosMatriculados = matriculados;
+            sem.alerta = '';
 
             var createSemestre = JSON.stringify(sem, null, " ")
             console.log(createSemestre)

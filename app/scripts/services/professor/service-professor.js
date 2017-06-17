@@ -40,7 +40,7 @@ professorService.factory('listarProfessores', ['$resource',
         return $resource(urlEndPoint + resourceProfessores, {}, {
             get: {
                 method: 'GET',
-                cache: false,
+                cache: true,
                 isArray: true
             }
         })
