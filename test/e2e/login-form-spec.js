@@ -4,8 +4,8 @@ describe("testando o formularido de login passando dados de acesso", function() 
         browser.get("http://localhost:3000/")
 
         //encontrando o elemento com o model login
-        element(by.model('user.login')).sendKeys('helton');
-        element(by.model('user.password')).sendKeys('123456');
+        element(by.model('user.login')).sendKeys('user');
+        element(by.model('user.password')).sendKeys('@xpto123');
 
         //encontrando o button e acionando o click
         element(by.id('click')).click();
