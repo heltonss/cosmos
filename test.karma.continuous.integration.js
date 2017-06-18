@@ -17,7 +17,7 @@ module.exports = function(config) {
         files: [
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
-            'app/bower_components/angular-route/angular-route.js',
+            // 'app/bower_components/angular-route/angular-route.js',
             // 'app/bower_components/jquery/dist/jquery.js',
             // // '../app/bower_components/materialize/bin/materialize.js',
             // // '../app/scripts/**/**/**/*.js',

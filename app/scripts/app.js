@@ -88,12 +88,4 @@ appCosmos.config(['$routeProvider', '$locationProvider',
         // }).hashPrefix('!');
         $locationProvider.html5Mode(false);
     }
-]).run(function ($rootScope, $location) {
-    $rootScope.$on('$routeChangeStart', function (event, next, current) {
-        var username = sessionStorage.getItem('username');
-        var password = sessionStorage.getItem('password');
-        if (username !== 'user' && password !== '@xpto123') {
-            $location.path('/')
-        }
-    })
-}) 
+])
