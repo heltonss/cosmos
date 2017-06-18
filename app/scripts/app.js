@@ -25,7 +25,7 @@ var appCosmos = angular.module('appCosmos', [
 ]);
 
 appCosmos.config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+    function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'partials/user_sessions/login.html',
@@ -89,3 +89,12 @@ appCosmos.config(['$routeProvider', '$locationProvider',
         $locationProvider.html5Mode(false);
     }
 ])
+// .run(function ($rootScope, $location) {
+//     $rootScope.$on('$routeChangeStart', function (event, next, current) {
+//         var username = sessionStorage.getItem('username');
+//         var password = sessionStorage.getItem('password');
+//         if (username !== 'user' && password !== '@xpto123') {
+//             $location.path('/')
+//         }
+//     })
+// })
