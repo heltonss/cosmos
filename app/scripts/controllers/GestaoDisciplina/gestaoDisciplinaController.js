@@ -31,30 +31,30 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
         for (i = 0; i < size; i++) {
             var notas = disciplina.alunosMatriculados[i].notas;
             if (vm.nome == disciplina.alunosMatriculados[i].nome) {
-                notas.push(vm.nota)
+                notas.push(parseFloat(document.getElementById('nota').value))
             }
         }
-        console.log(disciplina)
-        crudSemestre.update({ id: vm.id }, disciplina,
+
+        crudSemestre.update({ id: id }, disciplina,
             function success() {
-                console.log('salvou')
+                // console.log('salvou')
             },
             function error(err) {
-                console.log('error ', err)
+                // console.log('error ', err)
             }
         )
 
-        // inserirDisciplinaAlerta(disciplina)
-        // window.location.reload()
+        inserirDisciplinaAlerta(disciplina)
     }
 
     function inserirDisciplinaAlerta(disciplina) {
         if (vm.mediaGeral < 7) {
             disciplina.mediaGeral = vm.mediaGeral;
             disciplina.alerta = "Notificado porque a média da sala " + vm.mediaGeral + " se encontra abaixo da média da instituição que é 7";
+            disciplina.mediaFrequenciaProfessor = vm.mediaFaltaProfessor;
             createDisciplinaAlerta(disciplina)
 
-        } else if (vm.mediaGeral > 8.5 && vm.mediaFaltaProfessor.calc2 < 50) {
+        } else if (vm.mediaGeral > 8.5 && vm.mediaFaltaProfessor.calc1 > 50) {
             disciplina.mediaGeral = vm.mediaGeral;
             disciplina.mediaFrequenciaProfessor = vm.mediaFaltaProfessor;
             disciplina.alerta = "Notificado porque a média da sala " + vm.mediaGeral + " não condiz com a frequência do professor que é de " + vm.mediaFaltaProfessor.calc2 + "% das aulas destinadas a ele - " + vm.disciplina.qtdAulas + " aulas";
@@ -65,12 +65,13 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
     function createDisciplinaAlerta(disciplina) {
         crudDisciplinaAlerta.save(disciplina,
             function success() {
-                console.log('Disciplina em alerta foi salva com sucesso')
+                // console.log('Disciplina em alerta foi salva com sucesso')
             },
             function error(err) {
-                console.log('error ', err)
+                // console.log('error ', err)
             }
         )
+        window.location.reload()
     }
 
 }])
