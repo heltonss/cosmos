@@ -2,13 +2,12 @@
 
 var dashCursoControllers = angular.module('dashCursoControllers', []);
 
-dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores', 'listarAlunosService', 'crudSemestre',
-    function dashCursoCtrl($routeParams, crudCurso, listarProfessores, listarAlunosService, crudSemestre) {
+dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', 'listarProfessores', 'listarAlunosService', 'crudSemestre', 'listarSemestre',
+    function dashCursoCtrl($routeParams, crudCurso, listarProfessores, listarAlunosService, crudSemestre, listarSemestre) {
         var vm = this;
 
         var id = $routeParams.id;
         vm.createSemestre = createSemestre;
-        // vm.addListaAlunos = addListaAlunos;
         vm.addAluno = addAluno;
         vm.removeAluno = removeAluno;
         vm.addDisciplina = addDisciplina;
@@ -49,8 +48,11 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             sem.curso = vm.curso.nome;
             sem.semestre = semestre.semestre.semestre;
             sem.disciplina = vm.disciplina;
-            sem.professor = semestre.professor.nome
-            sem.alunosMatriculados = matriculados
+            sem.professor = semestre.professor.nome;
+            sem.qtdAulas = semestre.qtdAulas;
+            sem.qtdFaltasProfessor = 0;
+            sem.alunosMatriculados = matriculados;
+            sem.alerta = '';
 
             var createSemestre = JSON.stringify(sem, null, " ")
             console.log(createSemestre)
@@ -63,25 +65,8 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
                     console.log('error', err)
                 }
             )
-
-
         }
 
-        function addAluno(aluno) {
-            return matriculados.push({
-                nome: aluno,
-                notas: []
-            })
-        }
-
-
-        function removeAluno(aluno) {
-            return matriculados = matriculados.filter(function (elem) {
-                return elem.nome !== aluno
-           
-         
-            })
-        }
 
         function addDisciplina() {
             var inputs = document.getElementsByTagName('input');
@@ -104,6 +89,32 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
                 }
 
             }
+        }
+
+
+        //referente aos semestres.
+        listarSemestre.get({},
+            function success(res) {
+                vm.listarSemestre = res
+            },
+            function error(err) {
+                console.log('error', JSON.stringify(err))
+            }
+        )
+
+
+        //referente a aluno
+        function addAluno(aluno) {
+            return matriculados.push({
+                nome: aluno,
+                notas: []
+            })
+        }
+
+        function removeAluno(aluno) {
+            return matriculados = matriculados.filter(function (elem) {
+                return elem.nome !== aluno
+            })
         }
 
     }

@@ -10,7 +10,7 @@ professorService.factory('crudProfessor', ['$resource',
             get: {
                 method: 'GET',
                 url: urlEndPoint + resourceProfessores + '/:id',
-                cache: false,
+                cache: true,
                 isArray: false
             },
             save: {
@@ -40,7 +40,7 @@ professorService.factory('listarProfessores', ['$resource',
         return $resource(urlEndPoint + resourceProfessores, {}, {
             get: {
                 method: 'GET',
-                cache: false,
+                cache: true,
                 isArray: true
             }
         })
