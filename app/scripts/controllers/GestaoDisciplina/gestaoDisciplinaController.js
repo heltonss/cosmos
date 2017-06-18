@@ -34,8 +34,8 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
                 notas.push(vm.nota)
             }
         }
-
-        crudSemestre.update({ id: id }, disciplina,
+        console.log(disciplina)
+        crudSemestre.update({ id: vm.id }, disciplina,
             function success() {
                 console.log('salvou')
             },
@@ -43,9 +43,9 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
                 console.log('error ', err)
             }
         )
-        
-        inserirDisciplinaAlerta(disciplina)
-        window.location.reload()
+
+        // inserirDisciplinaAlerta(disciplina)
+        // window.location.reload()
     }
 
     function inserirDisciplinaAlerta(disciplina) {
@@ -56,6 +56,7 @@ gestaoDisciplinaControllers.controller('gestaoDisciplinaCtrl', ['$routeParams', 
 
         } else if (vm.mediaGeral > 8.5 && vm.mediaFaltaProfessor.calc2 < 50) {
             disciplina.mediaGeral = vm.mediaGeral;
+            disciplina.mediaFrequenciaProfessor = vm.mediaFaltaProfessor;
             disciplina.alerta = "Notificado porque a média da sala " + vm.mediaGeral + " não condiz com a frequência do professor que é de " + vm.mediaFaltaProfessor.calc2 + "% das aulas destinadas a ele - " + vm.disciplina.qtdAulas + " aulas";
             createDisciplinaAlerta(disciplina)
         }

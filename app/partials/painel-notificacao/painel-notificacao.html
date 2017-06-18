@@ -1,13 +1,13 @@
 <div data-ng-include="'./../partials/menu/menu.html'"></div>
 <h1 class="title-main center">Disciplinas que precisam de atenção</h1>
-<div class="row">
+<div class="row" data-ng-controller="disciplinaAlertaCtrl as vmDisciplinaAlerta">
     <div class="col s12">
-        <div class="card yellow lighten-4 col s12 m4 l4">
+        <div data-ng-repeat="disciplina in vmDisciplinaAlerta.disciplinaAlerta" class="card yellow lighten-4 col s12 m4 l4">
             <div class="card-content black-text">
                 <span class="card-title"></span>
-                <span class="bold">Disciplina: Estrutura de dados</span>
-                <p>Professor: Casper</p>
-                <p>Frequência: 30%</p>
+                <span class="bold">Disciplina: {{ disciplina.disciplina}}</span>
+                <p>Professor: {{disciplina.professor}}</p>
+                <p>Frequência: {{vmDisciplinaAlerta.frequenciaProfessor.calc2}}</p>
                 <p>Média da turma: 9.0</p>
                 <span class="red lighten-2 white-text">Notificado porque a frequência do professor não condiz com a média da sala</span>
             </div>
