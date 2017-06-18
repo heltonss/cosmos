@@ -8,7 +8,6 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
 
         var id = $routeParams.id;
         vm.createSemestre = createSemestre;
-        // vm.addListaAlunos = addListaAlunos;
         vm.addAluno = addAluno;
         vm.removeAluno = removeAluno;
         vm.addDisciplina = addDisciplina;
@@ -49,8 +48,11 @@ dashCursoControllers.controller('dashCursoCtrl', ['$routeParams', 'crudCurso', '
             sem.curso = vm.curso.nome;
             sem.semestre = semestre.semestre.semestre;
             sem.disciplina = vm.disciplina;
-            sem.professor = semestre.professor.nome
-            sem.alunosMatriculados = matriculados
+            sem.professor = semestre.professor.nome;
+            sem.qtdAulas = semestre.qtdAulas;
+            sem.qtdFaltasProfessor = 0;
+            sem.alunosMatriculados = matriculados;
+            sem.alerta = '';
 
             var createSemestre = JSON.stringify(sem, null, " ")
             console.log(createSemestre)

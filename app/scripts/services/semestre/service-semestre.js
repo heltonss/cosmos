@@ -10,13 +10,13 @@ semestreService.factory('crudSemestre', ['$resource',
 			get: {
 				method: 'GET',
 				url: urlEndPoint + resourceSemestre +'/:id',
-				cache: false,
+				cache: true,
 				isArray: false
 			},
 			save: {
 				method: 'POST',
 				url: urlEndPoint + resourceSemestre,
-				cache: false,
+				cache: true,
 				isArray: false
 			},
 			update: {
