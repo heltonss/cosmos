@@ -4,7 +4,7 @@ var colaboradorService = angular.module('colaboradorService', ['ngResource']);
 
 colaboradorService.factory('crudColaborador', ['$resource',
     function ($resource) {
-        var urlEndPoint = 'http://localhost:5000/'
+        var urlEndPoint = 'https://cosmosapi.herokuapp.com/'
         return $resource("", {}, {
             get: {
                 method: 'GET', url: urlEndPoint + 'administrador/:id', cache: false, isArray: false
