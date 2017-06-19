@@ -67,7 +67,7 @@ appCosmos.config(['$routeProvider', '$locationProvider',
                 controller: 'dashCursoCtrl'
             })
             .when('/cadastro-semestre-letivo/:id', {
-                templateUrl: 'partials/dashboard-Curso/form-semestre-letivo/form-semestre-letivo.html',
+                templateUrl: 'partials/dashboard-curso/form-semestre-letivo/form-semestre-letivo.html',
                 controller: 'dashCursoCtrl'
             })
             .when('/listar-alunos', {
