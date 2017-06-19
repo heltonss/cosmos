@@ -1,7 +1,7 @@
 'use strict'
 
 var professorService = angular.module('professorService', ['ngResource']);
-var urlEndPoint = 'http://localhost:5000/'
+var urlEndPoint = 'https://cosmosapi.herokuapp.com/'
 var resourceProfessores = 'professores';
 
 professorService.factory('crudProfessor', ['$resource',

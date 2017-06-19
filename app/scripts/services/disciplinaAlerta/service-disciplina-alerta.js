@@ -1,7 +1,7 @@
 'use strict'
 
 var disciplinaAlertaService = angular.module('disciplinaAlertaService', ['ngResource']);
-var urlEndPoint = 'http://localhost:5000/';
+var urlEndPoint = 'https://cosmosapi.herokuapp.com/';
 var resourceDisciplinaAlerta = 'disciplina-alerta'
 
 disciplinaAlertaService.factory('crudDisciplinaAlerta', ['$resource',

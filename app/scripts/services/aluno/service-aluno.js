@@ -1,7 +1,7 @@
 'use strict'
 
 var alunoService = angular.module('alunoService', ['ngResource']);
-var urlEndPoint = 'http://localhost:5000/'
+var urlEndPoint = 'https://cosmosapi.herokuapp.com/'
 var resourceAlunos = 'alunos';
 
 alunoService.factory('crudAluno', ['$resource',
